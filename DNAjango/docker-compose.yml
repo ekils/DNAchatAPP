@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    mysql_DNA:
+      container_name: mysql_DNA
+      image: mysql:5.7
+      volumes:
+        - mysql_DNA:/var/lib/mysql
+      ports:
+        - 8888:3306
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: 1234
+        MYSQL_DATABASE: mysql_DNA
+
+    redis_DNA:
+      container_name: redis_DNA
+      image: redis
+      restart: always
+      command: ["redis-server", "--appendonly", "yes"]
+      ports:
+        - "6379:6379"
+      volumes:
+        - redis-data_DNA:/data
+
+    app:
+      build: .
+      command: bash -c "python manage.py runserver 0.0.0.0:8000"
+      restart: always
+      ports:
+        - "8000:8000"
+      depends_on:
+        - mysql_DNA
+        - redis_DNA
+      volumes:
+        - .:/DNAjango
+    
+
+volumes:
+    redis-data_DNA:
+    mysql_DNA:
