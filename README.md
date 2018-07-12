@@ -1,6 +1,6 @@
 # DNAchatAPP
 Keep update
-* Before 07/11:  1. Understanding docker, restAPI,Redis and prepare resources. 
+* Before 07/11:  1. Understanding docker, restAPI,Redis and prepare resources. </br>
                  2. Setting up Django for pycharm (Ref: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter-1.html)
                  3. Setting up chatapp project(Ref: https://channels.readthedocs.io/en/latest/tutorial/part_1.html, and  https://github.com/twtrubiks/django-channels2-tutorial)
                  4. Setting up docker envirenment (docker-compose , dockerfile and requirement.txt).
