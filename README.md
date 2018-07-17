@@ -11,3 +11,6 @@ Keep update </br>
                  8. Finish personal-id by uuid setting.</br>
 * 07/12 : </br>
                 1. Finish bootstrap modal window with jquery and ajax value passing.</br>
+<h2>* 07/17 : </h2></br>
+                1. Add friend request from backend to frontend (views.py get data from models and pass to html) </br>
+                2. Ajax update data witout refresh page and jquery clean textarea, and clean update.</br>
