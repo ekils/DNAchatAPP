@@ -13,4 +13,5 @@ Keep update </br>
                 1. Finish bootstrap modal window with jquery and ajax value passing.</br>
 <h3>* 07/17 : </h3></br>
                 1. Add friend request from backend to frontend (views.py get data from models and pass to html) </br>
-                2. Ajax update data witout refresh page and jquery clean textarea, and clean update.</br>
+                2. Ajax update data witout refresh page and jquery clean textarea, and clean update.
+                3. Solve while "send add friend request" can  access to mysql data and use unique key to construct the relationship.</br>
