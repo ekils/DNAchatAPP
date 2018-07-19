@@ -15,3 +15,5 @@ Keep update </br>
                 1. Add friend request from backend to frontend (views.py get data from models and pass to html) </br>
                 2. Ajax update data witout refresh page and jquery clean textarea, and clean update.</br>
                 3. Solve while "send add friend request" can  access to mysql data and use unique key to construct the relationship.</br>
+<h3>* 07/19 : </h3></br>  
+                1. Modify html UI for more good UX.(Side-bar created.) </br>
