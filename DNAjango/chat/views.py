@@ -2,20 +2,24 @@ from django.contrib.auth import models
 from django.shortcuts import render,redirect
 from django.utils.safestring import mark_safe
 import json
-
+from django.http import JsonResponse
+from django.http import HttpResponse
+# 註冊用：
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
-
+from django.contrib.auth.hashers import make_password
+# 導入表格，model的文檔:
 from chat import forms
 from chat.models import Personal
-from django.contrib.auth.hashers import make_password
+from chat.models import Check_Database_for_Send_friend_Request, Add_to_RequestCheck,Parse_Request,Parse_Request_Accept_or_Reject,Check_Friendlist
+#亂數密碼:
 from uuid import uuid4
-
+#csrf:
 from django.views.decorators.csrf import csrf_exempt
 
-from django.db import connection, transaction
+
 
 def login(request):
     template = 'chat/login.html'
@@ -48,33 +52,105 @@ def login(request):
 
 @csrf_exempt
 def main(request):
+
     if request.user.is_authenticated:
         print('User "{}" is in the main page.'.format(str(request.user)))
         pp = Personal.objects.get(username = '{}'.format(str(request.user)))
         pid = (pp.personal_ID)
 
+        #檢查好友清單：
+        myfriend = Check_Friendlist(pid)
 
-
-    if request.method == 'GET':
-        print('Get Get Get')
-        if request.GET.get("logout"):
-            logout(request)
-            print('OUT GET')
-            return redirect('/dna')
-    else:
-        print('Post Post Post')
-
-       # 交友需求：
-        if request.is_ajax():
-
-            print(request.POST.get('idvalue'))
-
+        if request.method == 'GET':
+            print('Get Get Get')
+            if request.GET.get("logout"):
+                logout(request)
+                print('OUT GET')
+                return redirect('/dna')
+        else:
+            print('Post Post Post')
 
         if request.POST.get("logout"):
             logout(request)
             print('OUT POST')
             return redirect('/dna')
+
+
+        # 交友需求：
+        requestid = request.POST.get('idvalue')
+        hostid = pid
+        print('requestid:{}'.format(requestid))
+        if requestid:
+            requestid = requestid.strip()
+            ans = Check_Database_for_Send_friend_Request(hostid, requestid)
+
+            if ans!= None:
+                if ans =='1':
+                    ans543= "You Already Added !!"
+                else:
+                    ans543 = ans
+            else:
+                ans543 = "No User Exist"
+
+            return HttpResponse(json.dumps({'ans543': ans543 }))
+
     return  render (request,'chat/main.html',locals())
+
+@csrf_exempt
+def main_for_ajax(request):
+    ad = (request.POST.get('yes_to_add'))
+    # ad_dic = {'yes_to_add': ad}
+    if ad:
+        requestid = request.POST.get('idvalue')
+        requestid = requestid.strip()
+        pp = Personal.objects.get(username = '{}'.format(str(request.user)))
+        pid = (pp.personal_ID).strip()
+        hostid = pid
+        Add_to_RequestCheck(hostid,requestid)
+
+    return JsonResponse({})
+
+
+
+
+
+@csrf_exempt
+def show_request(request):
+    if request.user.is_authenticated:
+        pp = Personal.objects.get(username = '{}'.format(str(request.user)))
+        hostid = (pp.personal_ID)
+        r= Parse_Request(hostid)
+        h= [i for i in range(1,len(r)+1)]
+        dic = dict(zip(h,r))
+        print('交友需求字典:{}'.format(dic))
+        return HttpResponse(json.dumps(dic))
+    return -1
+
+
+@csrf_exempt
+def cry_or_smile(request):
+    if request.user.is_authenticated:
+    #  Get hostid:
+        pp = Personal.objects.get(username = '{}'.format(str(request.user)))
+        hostid = (pp.personal_ID)
+    #  Get Rqquest id:
+        what_you_click = request.POST.get('closeli')
+        request_username = what_you_click.split('×O')[0]  # 會返回 XO字的按鈕 所以要把他split掉
+        rid = Personal.objects.get(username = '{}'.format((request_username))) # 依樣用 .objects.get  去 MODEL資料庫找 personal id
+        requestid = (rid.personal_ID)
+
+        print(requestid)
+
+        ad = (request.POST.get('cry_or_smile'))
+        if ad == '0':
+            print(ad)
+            Parse_Request_Accept_or_Reject(0,hostid,requestid)
+        elif ad == '1':
+            print(ad)
+            Parse_Request_Accept_or_Reject(1,hostid,requestid)
+    return  JsonResponse({})
+
+
 
 
 def signup(request):
@@ -94,6 +170,9 @@ def signup(request):
                 return render(request, 'chat/signup.html', locals())
 
             else:
+                if len(username)>=20:
+                    messages.error(request,'username 長度請小於20')
+                    return render(request, 'chat/signup.html', locals())
                 same_name_user = models.User.objects.filter(username = username)
                 if same_name_user:
                     messages.error(request,'用戶已經存在，請更換')
@@ -102,6 +181,8 @@ def signup(request):
                 if same_email:
                     messages.error(request,'該信箱已經註冊過，請更換')
                     return render(request, 'chat/signup.html', locals())
+
+
 
                 new_user = models.User()
                 new_user.username = username
@@ -125,10 +206,19 @@ def signup(request):
     return render(request, 'chat/signup.html',{})
 
 
-
 def logout(request):
     print('{} is log out'.format(request.user))
     auth_logout(request)
+
+
+
+
+
+
+@csrf_exempt
+def chat_for_ajax(request):
+    return JsonResponse({})
+
 
 
 def room(request, room_name):

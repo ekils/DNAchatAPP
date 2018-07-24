@@ -23,18 +23,12 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Django DNA" type="feb32156:DbDataSourceImpl" />
+        <item name="mysqlDNA@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Django DNA" type="feb32156:DbDataSourceImpl" />
+        <item name="mysqlDNA@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Django DNA" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="mysql_DNA: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -47,29 +41,65 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DNAjango/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+            <state relative-caret-position="248">
+              <caret line="82" column="8" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chat/models.py">
+      <file leaf-file-name="routing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DNAjango/routing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chat/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="180">
+              <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
               <folding>
-                <element signature="e#15#39#0" expanded="true" />
+                <element signature="e#14#59#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#30#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat/routing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding>
+                <element signature="e#14#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="consumers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat/consumers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+              <folding>
+                <element signature="e#16#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="room.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat/templates/chat/room.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -77,15 +107,50 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat/templates/chat/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="297" column="27" lean-forward="true" selection-start-line="297" selection-start-column="27" selection-end-line="297" selection-end-column="27" />
+            <state relative-caret-position="256">
+              <caret line="652" lean-forward="true" selection-start-line="652" selection-end-line="652" />
               <folding>
-                <element signature="e#5630#5636#0#HTML" expanded="true" />
-                <element signature="e#5636#5642#0#HTML" expanded="true" />
-                <element signature="e#5658#5664#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#7196#7203#1#HTML" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#7902#7908#0#HTML" expanded="true" />
+                <element signature="e#8043#8050#1#HTML" expanded="true" />
+                <element signature="e#9343#9350#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#9898#9904#0#HTML" expanded="true" />
+                <element signature="e#9904#9910#0#HTML" expanded="true" />
+                <element signature="e#9910#9916#0#HTML" expanded="true" />
+                <element signature="e#9916#9922#0#HTML" expanded="true" />
+                <element signature="e#9922#9928#0#HTML" expanded="true" />
+                <element signature="e#9928#9934#0#HTML" expanded="true" />
+                <element signature="e#9934#9940#0#HTML" expanded="true" />
+                <element signature="e#9940#9946#0#HTML" expanded="true" />
+                <element signature="e#9946#9952#0#HTML" expanded="true" />
+                <element signature="e#9952#9958#0#HTML" expanded="true" />
+                <element signature="e#9958#9964#0#HTML" expanded="true" />
+                <element signature="e#9964#9970#0#HTML" expanded="true" />
+                <element signature="e#9970#9976#0#HTML" expanded="true" />
+                <element signature="e#9976#9982#0#HTML" expanded="true" />
+                <element signature="e#9982#9988#0#HTML" expanded="true" />
+                <element signature="e#9988#9994#0#HTML" expanded="true" />
+                <element signature="e#9994#10000#0#HTML" expanded="true" />
+                <element signature="e#10000#10006#0#HTML" expanded="true" />
+                <element signature="e#10006#10012#0#HTML" expanded="true" />
+                <element signature="e#10012#10018#0#HTML" expanded="true" />
+                <element signature="e#10018#10024#0#HTML" expanded="true" />
+                <element signature="e#10024#10030#0#HTML" expanded="true" />
+                <element signature="e#10030#10036#0#HTML" expanded="true" />
+                <element signature="e#10036#10042#0#HTML" expanded="true" />
+                <element signature="e#10042#10048#0#HTML" expanded="true" />
+                <element signature="e#10048#10054#0#HTML" expanded="true" />
+                <element signature="e#10054#10060#0#HTML" expanded="true" />
+                <element signature="e#10060#10066#0#HTML" expanded="true" />
+                <element signature="e#10066#10072#0#HTML" expanded="true" />
+                <element signature="e#10072#10078#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#12201#12208#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h6#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,8 +159,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chat/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="240">
+              <caret line="218" column="27" lean-forward="true" selection-start-line="218" selection-start-column="27" selection-end-line="218" selection-end-column="27" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -117,8 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>theme</find>
-      <find>username</find>
       <find>post</find>
       <find>app</find>
       <find>forms</find>
@@ -129,16 +192,37 @@
       <find>auth</find>
       <find>auth_login</find>
       <find>input</find>
+      <find>friendrequest</find>
+      <find>pid</find>
+      <find>idvalue</find>
+      <find>pid_answer</find>
+      <find>button</find>
+      <find>sign</find>
+      <find>signup</find>
+      <find>SignUpform</find>
+      <find>AddFriendForm</find>
+      <find>ng-cloak</find>
+      <find>log</find>
+      <find>myModal</find>
+      <find>myNodelist</find>
+      <find>ul</find>
+      <find>myfriend</find>
+      <find>scope</find>
+      <find>text_data</find>
+      <find>room_name_json</find>
+      <find>ans</find>
+      <find>Request</find>
     </findStrings>
+    <replaceStrings>
+      <replace>closeli</replace>
+    </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/chat/templates/chat/urls.py" />
-        <option value="$PROJECT_DIR$/chat/routing.py" />
         <option value="$PROJECT_DIR$/DNAjango/routing.py" />
-        <option value="$PROJECT_DIR$/chat/consumers.py" />
         <option value="$PROJECT_DIR$/Theme-Shield/css/ForLlogin.css" />
         <option value="$PROJECT_DIR$/forms.py" />
         <option value="$PROJECT_DIR$/Shield/css/ForSignUp.css" />
@@ -147,14 +231,16 @@
         <option value="$PROJECT_DIR$/chat/templates/chat/login.html" />
         <option value="$PROJECT_DIR$/DNAjango/urls.py" />
         <option value="$PROJECT_DIR$/chat/templates/chat/log.html" />
-        <option value="$PROJECT_DIR$/chat/urls.py" />
-        <option value="$PROJECT_DIR$/chat/templates/chat/room.html" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/chat/templates/chat/signup.html" />
-        <option value="$PROJECT_DIR$/DNAjango/settings.py" />
-        <option value="$PROJECT_DIR$/chat/models.py" />
         <option value="$PROJECT_DIR$/chat/forms.py" />
+        <option value="$PROJECT_DIR$/chat/models.py" />
+        <option value="$PROJECT_DIR$/DNAjango/settings.py" />
+        <option value="$PROJECT_DIR$/chat/routing.py" />
+        <option value="$PROJECT_DIR$/chat/templates/chat/room.html" />
+        <option value="$PROJECT_DIR$/chat/consumers.py" />
         <option value="$PROJECT_DIR$/chat/views.py" />
+        <option value="$PROJECT_DIR$/chat/urls.py" />
         <option value="$PROJECT_DIR$/chat/templates/chat/main.html" />
       </list>
     </option>
@@ -169,10 +255,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="34" />
-    <option name="width" value="1345" />
-    <option name="height" value="785" />
+    <option name="x" value="34" />
+    <option name="y" value="-1013" />
+    <option name="width" value="1564" />
+    <option name="height" value="880" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -264,7 +350,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,16 +391,30 @@
               <item name="Shield" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DNAjango" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DNAjango" type="462c0819:PsiDirectoryNode" />
+              <item name="Theme-Shield" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DNAjango" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DNAjango" type="462c0819:PsiDirectoryNode" />
+              <item name="Theme-Shield" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/bobobo746/Desktop/stuff/python/Python3/DNAjango/chat/routing.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -377,24 +476,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="34" width="1345" height="785" extended-state="0" />
+    <frame x="-18" y="-976" width="1564" height="880" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50074184" side_tool="true" weight="0.33333334" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.49925816" visible="true" weight="0.25581396" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.49925816" visible="true" weight="0.13282248" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info anchor="right" id="Python Console" order="6" weight="0.6268312" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.43835616" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17421335" />
+      <window_info anchor="right" id="Python Console" order="6" weight="0.50131404" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.4375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14586072" />
       <window_info anchor="right" id="Docker" order="5" weight="0.54970324" />
-      <window_info anchor="right" id="Database" order="0" weight="0.22803031" />
+      <window_info anchor="right" id="Database" order="0" weight="0.22793554" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32876712" />
       <window_info anchor="right" id="SciView" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3995272" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="manage.py@DNAjango" order="4" sideWeight="0.49925816" weight="0.48255813" />
+      <window_info anchor="bottom" id="manage.py@DNAjango" order="4" sideWeight="0.49925816" weight="0.31213874" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
@@ -403,31 +503,31 @@
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32911393" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32876712" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Docker" order="5" weight="0.55759805" />
+      <window_info anchor="right" id="Docker" order="5" weight="0.54970324" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11875" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1788181" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.2633297" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.49925816" visible="true" weight="0.32994187" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32978722" />
-      <window_info anchor="right" id="Python Console" order="6" weight="0.6272727" />
+      <window_info anchor="right" id="Python Console" order="6" weight="0.6262471" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3995272" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32991013" />
+      <window_info anchor="right" id="Database" order="0" weight="0.22793554" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.4375" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50074184" side_tool="true" weight="0.33333334" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="right" id="SciView" order="1" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="manage.py@DNAjango" order="4" weight="0.24032825" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32911393" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32876712" />
+      <window_info anchor="bottom" id="manage.py@DNAjango" order="4" sideWeight="0.49925816" weight="0.31540698" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -439,71 +539,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/chat/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/templates/chat/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3705">
-          <caret line="247" selection-start-line="247" selection-end-line="247" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/templates/chat/room.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding>
-            <element signature="e#30#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DNAjango/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="e#632#673#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DNAjango/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="144" column="24" lean-forward="true" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chat/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -543,9 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -553,9 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding>
-            <element signature="e#30#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -563,9 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="e#632#673#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,9 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -604,9 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#30#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -614,9 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#632#673#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -655,20 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DNAjango/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/consumers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Theme-Shield/css/ForLlogin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -694,26 +701,6 @@
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/python_stubs/1543693453/builtins.py" />
     <entry file="file://$PROJECT_DIR$/chat/templates/chat/log.html" />
-    <entry file="file://$PROJECT_DIR$/chat/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DNAjango/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="e#632#673#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chat/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -728,16 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding>
-            <element signature="e#30#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chat/templates/chat/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -745,24 +722,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://7b026cab-ffcb-448a-8014-f0c16351886e/schema/mysql_DNA/table/Personal_Space">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://7b026cab-ffcb-448a-8014-f0c16351886e/schema/mysql_DNA/table/Personal">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/templates/chat/room.html">
+    <entry file="das://7b026cab-ffcb-448a-8014-f0c16351886e/schema/mysql_DNA/table/Personal_Space" />
+    <entry file="das://7b026cab-ffcb-448a-8014-f0c16351886e/schema/mysql_DNA/table/Personal" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/django/forms/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="250">
+          <caret line="265" selection-start-line="265" selection-end-line="265" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/django/core/management/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="370" selection-start-line="370" selection-end-line="370" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/templates/chat/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/remote_sources/1543693453/-337502517/MySQLdb/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="291" selection-start-line="291" selection-end-line="291" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -775,59 +775,155 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DNAjango/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+        <state relative-caret-position="248">
+          <caret line="82" column="8" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat/models.py">
+    <entry file="file://$PROJECT_DIR$/DNAjango/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/templates/chat/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="55" />
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="n#style#0;n#li#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="e#224#233#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat/forms.py">
+    <entry file="file://$PROJECT_DIR$/DNAjango/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="375">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
-            <element signature="e#15#39#0" expanded="true" />
+            <element signature="e#632#673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/remote_sources/1543693453/-337502517/channels/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DNAjango/routing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          <folding>
+            <element signature="e#14#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/remote_sources/1543693453/-337502517/channels/consumer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/remote_sources/1543693453/-337502517/channels_redis/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/consumers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <element signature="e#16#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/routing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#30#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chat/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="240">
+          <caret line="218" column="27" lean-forward="true" selection-start-line="218" selection-start-column="27" selection-end-line="218" selection-end-column="27" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chat/templates/chat/room.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chat/templates/chat/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="297" column="27" lean-forward="true" selection-start-line="297" selection-start-column="27" selection-end-line="297" selection-end-column="27" />
+        <state relative-caret-position="256">
+          <caret line="652" lean-forward="true" selection-start-line="652" selection-end-line="652" />
           <folding>
-            <element signature="e#5630#5636#0#HTML" expanded="true" />
-            <element signature="e#5636#5642#0#HTML" expanded="true" />
-            <element signature="e#5658#5664#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#7196#7203#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#7902#7908#0#HTML" expanded="true" />
+            <element signature="e#8043#8050#1#HTML" expanded="true" />
+            <element signature="e#9343#9350#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#9898#9904#0#HTML" expanded="true" />
+            <element signature="e#9904#9910#0#HTML" expanded="true" />
+            <element signature="e#9910#9916#0#HTML" expanded="true" />
+            <element signature="e#9916#9922#0#HTML" expanded="true" />
+            <element signature="e#9922#9928#0#HTML" expanded="true" />
+            <element signature="e#9928#9934#0#HTML" expanded="true" />
+            <element signature="e#9934#9940#0#HTML" expanded="true" />
+            <element signature="e#9940#9946#0#HTML" expanded="true" />
+            <element signature="e#9946#9952#0#HTML" expanded="true" />
+            <element signature="e#9952#9958#0#HTML" expanded="true" />
+            <element signature="e#9958#9964#0#HTML" expanded="true" />
+            <element signature="e#9964#9970#0#HTML" expanded="true" />
+            <element signature="e#9970#9976#0#HTML" expanded="true" />
+            <element signature="e#9976#9982#0#HTML" expanded="true" />
+            <element signature="e#9982#9988#0#HTML" expanded="true" />
+            <element signature="e#9988#9994#0#HTML" expanded="true" />
+            <element signature="e#9994#10000#0#HTML" expanded="true" />
+            <element signature="e#10000#10006#0#HTML" expanded="true" />
+            <element signature="e#10006#10012#0#HTML" expanded="true" />
+            <element signature="e#10012#10018#0#HTML" expanded="true" />
+            <element signature="e#10018#10024#0#HTML" expanded="true" />
+            <element signature="e#10024#10030#0#HTML" expanded="true" />
+            <element signature="e#10030#10036#0#HTML" expanded="true" />
+            <element signature="e#10036#10042#0#HTML" expanded="true" />
+            <element signature="e#10042#10048#0#HTML" expanded="true" />
+            <element signature="e#10048#10054#0#HTML" expanded="true" />
+            <element signature="e#10054#10060#0#HTML" expanded="true" />
+            <element signature="e#10060#10066#0#HTML" expanded="true" />
+            <element signature="e#10066#10072#0#HTML" expanded="true" />
+            <element signature="e#10072#10078#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#12201#12208#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

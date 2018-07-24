@@ -2,17 +2,22 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{#angularjs#}
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+{#<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>#}
+{#google icon: #}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html><html class=''>
 {#<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/michellelpepe/pen/GoQyoJ?depth=everything&order=popularity&page=84&q=pack&show_forks=false" />#}
 {#<link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>#}
-
+<head>
 <style class="cp-pen-styles" >* {
   margin: 0;
   padding: 0;
@@ -52,19 +57,24 @@ html, body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 106vh;
+  height: 90%;
   width: 100vw;
+
 }
 
 .container h1{
         margin: 0.5em auto;
-        height: 70px;
-        font-size: 35px;
-        line-height: 100px;
-        color: #FFF
+        height: 95%;
+        position: relative;
+        font-size: 30px;
+        line-height: 12px;
+        color: #FFF;
+
+
     }
 .container h1 em{
         font-size: 5px;
+        margin: auto;
     }
 
 
@@ -81,8 +91,9 @@ html, body {
 
 .chatbox {
   background: rgba(255, 255, 255, 0.05);
-  width: 600px;
-  height: 75%;
+  width: 750px;
+  height: 90%;
+  bottom:0;
   border-radius: 0.2em;
   position: relative;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
@@ -152,21 +163,12 @@ html, body {
   border-bottom-right-radius: 0.2em;
 }
 
-.chatbox__user-list h1 {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9em;
-  padding: 1em;
-  margin: 0;
-  font-weight: 300;
-  text-align: center;
-}
 
 .chatbox__user, .chatbox__user--active, .chatbox__user--busy, .chatbox__user--away {
   width: 0.5em;
   height: 0.5em;
   border-radius: 100%;
-  margin: 1em 0.7em;
+  margin: 1em 1em;
 }
 
 .chatbox__user--active {
@@ -225,132 +227,445 @@ html, body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-</style></head>
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(142, 92, 117,0.8);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
 
-    <body>
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgba(200,200,200,0.9);
+    display: block;
+    transition: 0.3s;
+}
 
-        <div class='container' ng-cloak ng-app="chatApp" >
-            <h1 id="'ppp">
-                DNA Messenger &nbsp;&nbsp;<em>Personal ID:&nbsp;{{ pid }}</em>
-            </h1>
-            <div class="logoutLblPos">
-                <form action="" method="POST"  >
-                    {% csrf_token %}
-                    <button type= 'submit' style="color: #FFF; background-color:transparent ;width:80px;height:40px;border:2px blue none;"  value="logout" name="logout">logout</button>
-                </form>
-            </div>
+.sidenav a:hover {
+    color: #f1f1f1;
+}
 
-          <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 30px;
+    margin-left: 50px;
+}
 
-            <div class='chatbox__user-list'>
-              <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
-                       style="font-size:10px;
-                      display:table ;
-                      margin-left: auto;
-                      margin-right: auto;
-                      color: #FFF;
-                      background-color:transparent ;
-                      width:100px;height:30px;
-                      border:2px blue none;"  value="logout" name="logout"><i class="material-icons">person_add</i>
+.btn-change{
+    font-size:15px;
+    display:table;
+    padding-left: auto;
+    color: rgba(200,200,200,0.9);
+    background-color:transparent ;
+    width:140px;height:40px;
+    border:2px blue none;
+}
+.btn-change:hover{
+  color: #f1f1f1;
+}
+
+
+.btn-for-list{
+    color: rgba(200,200,200,0.9);
+    background-color:transparent ;
+    border: none;
+    height:13px;
+    float: left;
+    text-align: left;
+    margin: -0.25em 2em;
+    font-size: 1em;
+    font-weight: 300;
+
+
+}
+.btn-for-list:hover{
+  color: #f1f1f1;
+}
+
+
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+    /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+/* Style the close button */
+{#拒絕#}
+.closeli {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+.closeli:hover {
+  background-color: #4d0000;
+  color: white;
+}
+{#接受#}
+.closeli2 {
+  position: absolute;
+  right: 48px;
+  top: 0;
+  padding: 12px 16px 12px 16px ;
+}
+.closeli2:hover {
+  background-color: #0a420a;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+    <span style="font-size:30px;cursor:pointer; float:right;color: #FFF;" onclick="openNav()">&#9776; &nbsp;</span>
+    <div id="mySidenav" class="sidenav">
+          <a  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <button  class=" btn-change">Information
+          </button>
+            <br>
+          <button  class=" btn-change" data-toggle="modal" data-target="#myModal" >Add Friend
+          </button>
+            <br>
+          <button  class=" btn-change" data-toggle="modal" data-target="#Friend_Request" id ='Request' >Friend Request
+          </button>
+            <br>
+          <button  class=" btn-change">Social Network
+          </button>
+            <br>
+          <button  class=" btn-change">Email
+          </button>
+            <br>
+          <button  class=" btn-change ">SMS Message
+          </button>
+            <br>
+          <form action="" method="POST"  >
+                {% csrf_token %}
+              <button type= 'submit' class="btn-change"  value="logout" name="logout">Logout
               </button>
+          </form>
 
+    </div>
+    <!-----  Add Friend Modal對話匡 --------->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button id = "close" type="button" class="close" data-dismiss="modal"> &times;</button>
+              <h4 class="modal-title"> Add Friend </h4>
+                <div class="modal-body">
+                        Personal_id: <input type="text" id="fpid" name="fpid" class = modalinline>
 
-
-                     <!-- Modal對話匡 -->
-                      <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog modal-sm">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title"> Add Friend </h4>
-                                <div class="modal-body">
-                                        Personal_id: <input type="text" id="fpid" name="fpid" class = modalinline>
-
-                                        <button id ="send" type="button" onclick="add_info()" class="btn btn-primary">Send </button>
-                                </div>
-                                <div class="modal-body">
-                                           Friend Request:
-                                </div>
-{#                                    <div class="modal-footer">#}
-{#                                      <button id ="send2" type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
-{#                                    </div>#}
-                             </div>
-                          </div>
-                        </div>
-                      </div>
-              <script>
-
-                    $(document).ready(function(){
-                        $("#send").click( function () {
-                            idvalue = $('#fpid').val();
-                            $.ajax({
-                                 url:'/dna/main/',
-                                 type:'POST',
-                                 dataType: "json",
-                                 data: {
-                                     'idvalue':idvalue
-                                 },
-                                 success: function(result) {
-                                 },
-                                 fail: function(result) {
-                                 }
-                            });
-                        });
-                    });
-              </script>
-
-
-
-
-                <div class='chatbox__user--active'>
-                <p>Maelyn Pepe</p>
-              </div>
-              <div class='chatbox__user--busy'>
-                <p>Michelle Pepe</p>
-              </div>
-              <div class='chatbox__user--active'>
-                <p>Amy Angular</p>
-              </div>
-              <div class='chatbox__user--active'>
-                <p>Jack Uniden</p>
-              </div>
-              <div class='chatbox__user--away'>
-                <p>Ben Marcus</p>
-              </div>
-            </div>
-            <div class="chatbox__messages" ng-repeat="message in messages">
-              <div class="chatbox__messages__user-message">
-                <div class="chatbox__messages__user-message--ind-message">
-                  <p class="name">{{message.Name}}</p>
-                  <br/>
-                  <p class="message">{{message.Message}}</p>
+                        <button id ="search" type="button"  class="btn btn-primary">Search </button>
                 </div>
-              </div>
-            </div>
-            <form>
-              <input type="text" placeholder="Type Message">
-            </form>
+                <div class="modal-body">
+                           Search Result:
+                    <div id ="log" style="position: absolute"> </div>
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id ="add" type="button" style=" background-color: #0a420a;
+                                                            border: none;
+                                                            color: white;
+                                                            padding: 5px 8px;
+                                                            text-align: center;
+                                                            text-decoration: none;
+                                                            display: none;
+                                                            font-size: 12px;
+                                                            cursor: pointer;
+                                                                          "> O </button>
+                    <button id ="cancle" type="button" style=" background-color: #4d0000;
+                                                            border: none;
+                                                            color: white;
+                                                            padding: 5px 8px;
+                                                            text-align: center;
+                                                            text-decoration: none;
+                                                            display: none;
+                                                            font-size: 12px;
+                                                            cursor: pointer;
+                                                                        "> X </button>
+                </div>
+             </div>
           </div>
-{#        <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>#}
-            <script >(function() {
-              var app = angular.module('chatApp', []);
-
-              app.controller('MessageCtrl', function($scope) {
-                $scope.messages = [{
-                  Name: 'Ben Marcus',
-                  Message: "Hi  : )"
-                }, {
-                  Name: 'Michelle Pepe',
-                  Message: "What's up?"
-                }, {
-                  Name: 'Ben Marcus',
-                  Message: "Nothing much, You?"
-                }];
-              });
-
-            })();
-            //# sourceURL=pen.js
-            </script>
         </div>
-    </body>
+      </div>
+
+
+    <!-----  Friend Request Modal對話匡 --------->
+     <div class="modal fade" id="Friend_Request" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button id = "close2" type="button" class="close" data-dismiss="modal"> &times;</button>
+              <h4 class="modal-title"> Friend Request </h4>
+                <div class="modal-body">
+                    <ul>
+                        <li id="people"></li>
+                    </ul>
+                </div>
+
+             </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+<!------------  Script 專區 -------------->
+    <script>
+
+    {#<!------- Side bar ----->#}
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "160px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+    {#<!------- Modal功能應用區  ----->#}
+        $(document).ready(function(){
+             $.ajaxSetup({ data: {csrfmiddlewaretoken: '{{ csrf_token }}' }, });
+        });
+
+        $(document).on('hidden.bs.modal', function () {
+          $('.modal-body input,.modal-body textarea').each(function(){
+              $(this).val('');
+              $('#log').empty();
+              $('#add').hide();
+              $('#cancle').hide();
+          });
+        });
+        {#<!------- Add Friend request ----->#}
+        $("#search").click( function (event) {
+            idvalue = $('#fpid').val();
+            event.preventDefault();
+            $('#log').empty();
+            $.ajax({
+                 url:'/dna/main/',
+                 type:'POST',
+                 dataType: "json",
+                 data: {
+                     'idvalue':idvalue,},
+                {#------  result is from views.py 的資料  ------#}
+                 success: function(result) {
+                     if (result.ans543 == "No User Exist"){
+                         $("<div>").append(result.ans543).appendTo("#log");
+                         $('#add').hide();
+                         $('#cancle').hide();
+
+                     }
+                     else if(result.ans543 == "You Already Added !!"){
+                         $("<div>").append(result.ans543).appendTo("#log");
+                         $('#add').hide();
+                         $('#cancle').hide();
+                     }
+                     else{
+                         $("<div>").append(result.ans543).appendTo("#log");
+                         $('#add').show();
+                         $('#cancle').show();
+                         $('#cancle').click(function(){
+                             $('#log').empty();
+                         });
+                     }
+                 },
+                 fail: function() {
+                 }
+            });
+        });
+        $("#add").click( function () {
+            yes_to_add = 1;
+            idvalue = $('#fpid').val();
+            $.ajax({
+                 url:'/dna/main_for_ajax/',
+                 type:'POST',
+                 dataType: "json",
+                 data: {
+                     'yes_to_add':yes_to_add ,
+                     'idvalue':idvalue,
+                 },
+                 success: function() {
+                     alert('Sent Request');
+                 },
+                 fail: function() {
+                 }
+            })
+        });
+
+         {#<!------- Friend Request ----->#}
+          $("#Request").click( function (result) {
+              $('#people').empty();
+
+              $.ajax({
+                  url: '/dna/show_request/',
+                  type: 'POST',
+                  dataType: "json",
+                  data: result.dic,
+                  success: function (data) {
+                      for (ii in data) {
+                          $('<li>').append(data[ii]).appendTo("#people");
+                      }
+                  // Create a "closeli" button and append it to each list item
+                      myNodelist = document.getElementsByTagName("li");
+                      myNodelist2 = document.getElementsByTagName("li");
+                      for (i = 1; i < myNodelist.length; i++) {            // 待解決：因為底層還有個#people 所以i=1
+                          span = document.createElement("span");
+                          txt = document.createTextNode("\u00D7");
+                          span.className = "closeli";
+                          span.appendChild(txt);
+                          span2 = document.createElement("span2");
+                          myNodelist[i].appendChild(span);
+
+                          txt2 = document.createTextNode("O");
+                          span2.className = "closeli2";
+                          span2.appendChild(txt2);
+                          myNodelist2[i].appendChild(span2);
+                      }
+                 // Click on a close button to hide the current list item
+                    // 拒絕：
+                      closeli = document.getElementsByClassName("closeli");
+                      for (i = 0; i < closeli.length; i++) {
+                          closeli[i].onclick = function() {
+                            div = this.parentElement;
+                            div.style.display = "none";
+                            what_you_click = div.textContent;
+                            cry_or_smile = 0;
+                            $.ajax({
+                                url: '/dna/cry_or_smile/',
+                                type: 'POST',
+                                dataType: "json",
+                                data: {'cry_or_smile':cry_or_smile,
+                                       'closeli':what_you_click ,
+                                },
+                            })
+                          };
+                        }
+                    //接受：
+                      closeli2 = document.getElementsByClassName("closeli2");
+                      for (i = 0; i < closeli2.length; i++) {
+                          closeli2[i].onclick = function() {
+                            div = this.parentElement;
+                            div.style.display = "none";
+                            cry_or_smile = 1;
+                            what_you_click = div.textContent;
+                             $.ajax({
+                                url: '/dna/cry_or_smile/',
+                                type: 'POST',
+                                dataType: "json",
+                                data: {'cry_or_smile':cry_or_smile,
+                                        'closeli':what_you_click ,
+                                },
+                            })
+                          }
+                        }
+                  },
+                  fail: function () {
+                  }
+              });
+          });
+
+
+    </script>
+
+{#        <img src="../../../Shield/img/4.png" style=" width:50px ; float: left; margin:15px " alt="dna">#}
+    <div class='container ' ng-cloak ng-app="chatApp" style="position:relative " >
+        <h1 id="'ppp" >
+            DNA Messenger &nbsp;&nbsp;<em>Personal ID:&nbsp;{{ pid }}</em>
+        </h1>
+      <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
+
+        <div class='chatbox__user-list'>
+            <h6 style="padding-left: 40%; top: 5% "></h6><i class="material-icons" style="font-size:36px;color:white">people</i>
+            <div></div>
+            {% for i in myfriend %}
+            <div  class='chatbox__user--active'>
+                 <button ng-click ='myFunc()' class='btn-for-list' type="button" id ='kerker'  value ='{{ i }}'  >{{ i }}</button>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="chatbox__messages" ng-repeat="message in messages">
+          <div class="chatbox__messages__user-message">
+            <div class="chatbox__messages__user-message--ind-message">
+              <p class="name">{{message.Name}}</p>
+              <br/>
+              <p class="message">{{message.Message}}</p>
+            </div>
+          </div>
+        </div>
+        <form>
+          <input type="text" placeholder="Type Message">
+        </form>
+      </div>
+      <script >
+            app = angular.module('chatApp', []);
+            app.controller('MessageCtrl', function($scope) {
+            $scope.messages =[];
+            $scope.myFunc = function() {
+                $scope.messages = [{
+                    Name: 'Ben Marcus',
+                    Message: "Hi  : )"
+                }, {
+                    Name: 'Michelle Pepe',
+                    Message: "What's up?"
+                }, {
+                    Name: 'Ben Marcus',
+                    Message: "Nothing much, You?"
+                }];
+            };
+           });
+
+      </script>
+
+
+    </div>
+</body>
 </html>
