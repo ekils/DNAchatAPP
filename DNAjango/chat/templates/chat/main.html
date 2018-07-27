@@ -676,7 +676,19 @@ ul li.checked::before {
           });
 
           app.controller('MessageCtrl', function($scope) {
-              
+
+              $scope.$watch('np', function(){
+                  app.controller('MessageCtrl', function($scope) {
+                      $scope.messages = [{
+                          Name: 'Ben Marcus',
+                          Message: messagex,
+                      }];
+                  });
+
+
+
+              })
+
           });
 
 
@@ -699,14 +711,6 @@ ul li.checked::before {
               chatSocket.onmessage = function(e) {   // 6. websocket get data from backend then sent to the borwser to let clients see.
                   data = JSON.parse(e.data);
                   messagex = data['messagex'];
-
-                  app.controller('MessageCtrl', function($scope) {
-                      $scope.messages = [{
-                          Name: 'Ben Marcus',
-                          Message: messagex,
-                      }];
-                  });
-
 
 
               };
