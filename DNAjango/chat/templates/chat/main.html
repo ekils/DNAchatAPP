@@ -1,13 +1,17 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{#<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>#}
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {#angularjs#}
-<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+<script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
 {#<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>#}
 {#google icon: #}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -622,49 +626,110 @@ ul li.checked::before {
             DNA Messenger &nbsp;&nbsp;<em>Personal ID:&nbsp;{{ pid }}</em>
         </h1>
       <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
-
         <div class='chatbox__user-list'>
             <h6 style="padding-left: 40%; top: 5% "></h6><i class="material-icons" style="font-size:36px;color:white">people</i>
             <div></div>
             {% for i in myfriend %}
             <div  class='chatbox__user--active'>
                  <button ng-click ='myFunc()' class='btn-for-list' type="button" id ='kerker'  value ='{{ i }}'  >{{ i }}</button>
+{#                 <button  class='btn-for-list' type="button" id ='kerker'  value ='{{ i }}'  >{{ i }}</button>#}
             </div>
             {% endfor %}
         </div>
         <div class="chatbox__messages" ng-repeat="message in messages">
           <div class="chatbox__messages__user-message">
             <div class="chatbox__messages__user-message--ind-message">
-              <p class="name">{{message.Name}}</p>
+              <p class="name">[[message.Name]]</p>
               <br/>
-              <p class="message">{{message.Message}}</p>
+              <p class="message">[[message.Message]]</p>
             </div>
           </div>
         </div>
         <form>
-          <input type="text" placeholder="Type Message">
+          <input ng-model="np" id="chat-message-input" type="text" placeholder="Type Message">
         </form>
       </div>
       <script >
-            app = angular.module('chatApp', []);
-            app.controller('MessageCtrl', function($scope) {
-            $scope.messages =[];
-            $scope.myFunc = function() {
-                $scope.messages = [{
-                    Name: 'Ben Marcus',
-                    Message: "Hi  : )"
-                }, {
-                    Name: 'Michelle Pepe',
-                    Message: "What's up?"
-                }, {
-                    Name: 'Ben Marcus',
-                    Message: "Nothing much, You?"
-                }];
-            };
-           });
+       //
+        {#  app = angular.module('chatApp', []);#}
+        {#因為django傳資料也用{{  }},跟angular撞到 ，所以angular要改：#}
+        {#  app.config(function($interpolateProvider) {#}
+        {#      $interpolateProvider.startSymbol('[[');#}
+        {#      $interpolateProvider.endSymbol(']]');#}
+        {#  });#}
+        {#  app.controller('MessageCtrl', function($scope) {#}
+        {#      $scope.myFunc = function() {#}
+        {#          $scope.showOriginal = true;#}
+        {#          $scope.messages = [{#}
+        {#              Name: 'Ben Marcus',#}
+        {#              Message:'ddd',#}
+        {#          }];#}
+        {#      };#}
+        {#   });#}
+
+
+          app = angular.module('chatApp', []);
+        // {#因為django傳資料也用{{  }},跟angular撞到 ，所以angular要改：#}
+          app.config(function($interpolateProvider) {
+              $interpolateProvider.startSymbol('[[');
+              $interpolateProvider.endSymbol(']]');
+          });
+
+          app.controller('MessageCtrl', function($scope) {
+
+
+              $scope.messages = [{
+                  Name: 'Ben Marcus',
+                  Message: 'xxx',
+              }];
+
+          });
+
+
+          $('#kerker').click( function (result) {
+              fired_button = $(this).val();
+              p_id = $('em').text();
+              p_id2 =p_id.split("Personal ID:\xa0");
+              my_id = p_id2.slice(1);
+
+              $.ajax({
+                    url: '/dna/fire_in_the_hole_for_ajax/',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {'fired_button':fired_button}
+              });
+              {#alert(fired_button);#}
+
+              chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
+
+              chatSocket.onmessage = function(e) {   // 6. websocket get data from backend then sent to the borwser to let clients see.
+                  data = JSON.parse(e.data);
+                  messagex = data['messagex'];
+
+
+              };
+
+              chatSocket.onclose = function(e) {
+                  console.error('Chat socket closed unexpectedly');
+              };
+
+              document.querySelector('#chat-message-input').focus();
+              document.querySelector('#chat-message-input').onkeyup = function(e) {
+                  if (e.keyCode === 13) {  // enter, return
+                      messageInputDom = document.querySelector('#chat-message-input');
+                      messagex = messageInputDom.value;
+                      chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                            'messagex': messagex
+                      }));
+                      messageInputDom.value = '';
+                  }
+              };
+
+          });
+
+
 
       </script>
-
 
     </div>
 </body>

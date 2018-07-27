@@ -1,4 +1,5 @@
 from django.db import models, connection
+from uuid import uuid4
 
 # Create your models here.
 
@@ -12,12 +13,6 @@ class Personal(models.Model):# 每個帳號的個人資訊
     class Meta:
         db_table = "Personal"
 
-class Header(models.Model):# 聯絡人彼此關係
-    host_personal_ID = models.CharField(max_length=20, blank=True)
-    guest_personal_ID = models.CharField(max_length=20, blank=True)
-    last_modify_date = models.DateTimeField(auto_now=True)
-    class Meta:
-        db_table = "Header"
 
 class Message(models.Model): # 聊天內容
     header_id = models.IntegerField(blank=True)
@@ -30,6 +25,8 @@ class Message(models.Model): # 聊天內容
 class Friendlist(models.Model):# 好友單
     host_personal_ID = models.CharField(max_length=20, blank=True)
     hostfriendlist = models.CharField(max_length=20, blank=True)
+    you_guys_chat_room_name= models.CharField(max_length=40, blank=True)
+
     class Meta:
         db_table = "Friendlist"
 
@@ -111,9 +108,12 @@ def Parse_Request_Accept_or_Reject(c_o_s,hostid,requestid):
         if c_o_s ==1: # 接受交友
             print('Love')
             # 互為好友：
-            cursor.execute(" insert into Friendlist(host_personal_ID,hostfriendlist) values('{}','{}')".format(hostid,requestid))
-            cursor.execute(" insert into Friendlist(host_personal_ID,hostfriendlist) values('{}','{}')".format(requestid,hostid))
+            # 增加彼此聊天室密碼：
+            creat_room_name = str(uuid4())
+            cursor.execute(" insert into Friendlist(host_personal_ID,hostfriendlist,you_guys_chat_room_name) values('{}','{}','{}')".format(hostid,requestid,creat_room_name))
+            cursor.execute(" insert into Friendlist(host_personal_ID,hostfriendlist,you_guys_chat_room_name) values('{}','{}','{}')".format(requestid,hostid,creat_room_name))
             cursor.execute(" delete from RequestCheck where host_personal_ID = '{}'and request_ID ='{}'".format(hostid,requestid))
+
         elif c_o_s ==0: # 慘忍拒絕
             print('Damn')
             cursor.execute(" delete from RequestCheck where host_personal_ID = '{}'and request_ID ='{}'".format(hostid,requestid))
@@ -129,3 +129,11 @@ def Check_Friendlist(hostid):
 
     cursor.close()
     return friendslist
+
+def Get_room_name(host_id,friend__personal_id):
+    with connection.cursor() as cursor:
+        cursor.execute("select you_guys_chat_room_name from Friendlist where host_personal_ID ='{}' and hostfriendlist ='{}' ".format(host_id,friend__personal_id))
+        get_name= cursor.fetchone()
+        name = get_name[0]
+    cursor.close()
+    return name

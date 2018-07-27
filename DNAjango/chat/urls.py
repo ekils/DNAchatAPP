@@ -12,7 +12,7 @@ urlpatterns = [
     path('main_for_ajax/',views.main_for_ajax,name= 'main_for_ajax'),
     path('show_request/',views.show_request,name= 'show_request'),
     path('cry_or_smile/',views.cry_or_smile,name= 'cry_or_smile'),
-    path('chat_for_ajax/',views.chat_for_ajax,name= 'chat_for_ajax'),
+    path('fire_in_the_hole_for_ajax/',views.fire_in_the_hole_for_ajax,name= 'fire_in_the_hole_for_ajax'),
 
 
     path('main/<str:room_name>/', views.room, name='room'),

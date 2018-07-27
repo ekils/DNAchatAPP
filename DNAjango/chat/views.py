@@ -13,7 +13,7 @@ from django.contrib.auth.hashers import make_password
 # 導入表格，model的文檔:
 from chat import forms
 from chat.models import Personal
-from chat.models import Check_Database_for_Send_friend_Request, Add_to_RequestCheck,Parse_Request,Parse_Request_Accept_or_Reject,Check_Friendlist
+from chat.models import Check_Database_for_Send_friend_Request, Add_to_RequestCheck,Parse_Request,Parse_Request_Accept_or_Reject,Check_Friendlist,Get_room_name
 #亂數密碼:
 from uuid import uuid4
 #csrf:
@@ -62,13 +62,11 @@ def main(request):
         myfriend = Check_Friendlist(pid)
 
         if request.method == 'GET':
-            print('Get Get Get')
+            # print('Get Get Get')
             if request.GET.get("logout"):
                 logout(request)
                 print('OUT GET')
                 return redirect('/dna')
-        else:
-            print('Post Post Post')
 
         if request.POST.get("logout"):
             logout(request)
@@ -213,10 +211,15 @@ def logout(request):
 
 
 
-
-
 @csrf_exempt
-def chat_for_ajax(request):
+def fire_in_the_hole_for_ajax(request):
+    if request.user.is_authenticated:
+        pp = Personal.objects.get(username = '{}'.format(str(request.user)))
+        hostid = (pp.personal_ID)
+        who_u_press = request.POST.get('fired_button')
+        print('who_u_press:{}'.format(who_u_press)) # freind_personal_id
+        print('who_press:{}'.format(hostid))
+        room_name = Get_room_name(hostid,who_u_press)
     return JsonResponse({})
 
 
