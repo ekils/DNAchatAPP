@@ -57,6 +57,7 @@ def main(request):
         print('User "{}" is in the main page.'.format(str(request.user)))
         pp = Personal.objects.get(username = '{}'.format(str(request.user)))
         pid = (pp.personal_ID)
+        pu = pp.username
 
         #檢查好友清單：
         myfriend = Check_Friendlist(pid)
@@ -217,6 +218,7 @@ def fire_in_the_hole_for_ajax(request):
         pp = Personal.objects.get(username = '{}'.format(str(request.user)))
         hostid = (pp.personal_ID)
         who_u_press = request.POST.get('fired_button')
+        who_la = 1
         print('who_u_press:{}'.format(who_u_press)) # freind_personal_id
         print('who_press:{}'.format(hostid))
         room_name = Get_room_name(hostid,who_u_press)

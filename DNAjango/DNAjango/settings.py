@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'mysql_DNA',
         'USER': 'root',
         'PASSWORD':'1234',
-        'HOST':'192.168.6.147',
+        'HOST':'192.168.6.92',
         'PORT':'8888',
     }
 }

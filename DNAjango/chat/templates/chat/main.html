@@ -31,22 +31,25 @@
 
 
 html, body {
-  background: -webkit-linear-gradient(330deg, #000, #f0a6ca);
-  background: linear-gradient(120deg, #000, #f0a6ca);
-  overflow: hidden;
+    background: linear-gradient(15deg, #997D37 ,#2a7561,#18594B,#115146 );
+    background-size: cover;
+  {#background: -webkit-linear-gradient(330deg, #000, #f0a6ca);#}
+  {#background: linear-gradient(120deg, #000, #f0a6ca);#}
+    overflow: hidden;
 }
 
 .modalinline{
     display:inline;
 }
 
-.logoutLblPos{
-   position:fixed;
-   right:20px;
-   top:15px;
-}
 
 
+
+
+{#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#}
+
+
+{#like #frame#}
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,70 +96,104 @@ html, body {
     color: #F2F;
 }
 
-.chatbox {
-  background: rgba(255, 255, 255, 0.05);
-  width: 750px;
-  height: 90%;
-  bottom:0;
-  border-radius: 0.2em;
-  position: relative;
-  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+
+
+{#like content#}
+
+.container .chatbox {
+    background: rgba(255, 255, 255, 0.05);
+    width: 950px;
+    height: 90%;
+    bottom:0;
+    border-radius: 0.2em;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+    float:left;
+    {#overflow: hidden;#}
+    position: relative;
 }
 
-.chatbox__messages:nth-of-type(odd) .chatbox__messages__user-message--ind-message {
-  float: right;
-}
+.container .chatbox  p {
 
-.chatbox__messages:nth-of-type(odd) .chatbox__messages__user-message--ind-message:after {
-  content: '';
-  position: absolute;
-  margin: -1.5em -17.06em;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid rgba(255, 255, 255, 0.2);
-}
+    font-size: 1em;
+    font-weight: 300;
+    color: #FFF;
+    max-width: 60%;
+    float: right;
 
-.chatbox__messages:nth-of-type(even) .chatbox__messages__user-message--ind-message {
+}
+.container.chatbox {
   float: left;
 }
 
-.chatbox__messages:nth-of-type(even) .chatbox__messages__user-message--ind-message:after {
-  content: '';
-  position: absolute;
-  margin: -1.5em 1.87em;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid rgba(255, 255, 255, 0.2);
-}
-
-.chatbox__messages__user-message {
-  width: 450px;
-}
-
-.chatbox__messages__user-message--ind-message {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 1em 0;
+.container .chatbox .messages {
   height: auto;
-  width: 65%;
-  border-radius: 5px;
-  margin: 2em 1em;
-  overflow: auto;
+  min-height: calc(100% - 93px);
+  max-height: calc(100% - 93px);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-.chatbox__messages__user-message--ind-message > p.name {
-  color: #FFF;
-  font-size: 1em;
+.container .chatbox .messages::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.container .chatbox .messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.container .chatbox .messages  li {
+  display: inline-block;
+  clear: both;
+  float: left;
+  margin: 15px 15px 5px 15px;
+  width: calc(100% - 25px);
+  font-size: 0.9em;
+}
+.container .chatbox .messages  li:nth-last-child(1) {
+  margin-bottom: 20px;
+}
+.container .chatbox .messages  li.sent img {
+  margin: 6px 8px 0 0;
+}
+.container .chatbox .messages  li.sent p {
+  {#background: #435f7a;#}
+  {#color: #f5f5f5;#}
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3em 1em;
+    border-radius:6px;
+}
+.container .chatbox .messages  li.replies img {
+  float: right;
+  margin: 6px 0 0 8px;
+}
+.container .chatbox .messages  li.replies p {
+  background: #f5f5f5;
+  float: right;
+}
+.container .chatbox .messages  li img {
+  width: 22px;
+  border-radius: 50%;
+  float: left;
+}
+.container .chatbox .messages ul li p {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 205px;
+  line-height: 130%;
 }
 
-.chatbox__messages__user-message--ind-message > p.message {
-  color: #FFF;
-  font-size: 0.7em;
-  margin: 0 2.8em;
-}
+
+
+
+{#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#}
+
+
+
+
+
+
+
+
 
 .chatbox__user-list {
   background: rgba(255, 255, 255, 0.1);
@@ -187,21 +224,13 @@ html, body {
   background: rgba(255, 253, 130, 0.8);
 }
 
-.chatbox p {
-  float: left;
-  text-align: left;
-  margin: -0.25em 2em;
-  font-size: 0.7em;
-  font-weight: 300;
-  color: #FFF;
-  width: 200px;
-}
+
 
 .chatbox form {
   background: #222;
 }
 
-.chatbox form input {
+.chatbox form textarea {
   background: rgba(255, 255, 255, 0.03);
   position: absolute;
   bottom: 0;
@@ -238,7 +267,8 @@ html, body {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: rgba(142, 92, 117,0.8);
+    background: linear-gradient(15deg, #997D37 ,#2a7561,#18594B,#115146 );
+    opacity: 0.7;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -365,10 +395,11 @@ ul li.checked::before {
   color: white;
 }
 
+
+
 </style>
 </head>
 <body>
-
     <span style="font-size:30px;cursor:pointer; float:right;color: #FFF;" onclick="openNav()">&#9776; &nbsp;</span>
     <div id="mySidenav" class="sidenav">
           <a  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -619,7 +650,6 @@ ul li.checked::before {
 
 
     </script>
-
 {#        <img src="../../../Shield/img/4.png" style=" width:50px ; float: left; margin:15px " alt="dna">#}
     <div class='container ' ng-cloak ng-app="chatApp" style="position:relative " >
         <h1 id="'ppp" >
@@ -632,41 +662,22 @@ ul li.checked::before {
             {% for i in myfriend %}
             <div  class='chatbox__user--active'>
                  <button ng-click ='myFunc()' class='btn-for-list' type="button" id ='kerker'  value ='{{ i }}'  >{{ i }}</button>
-{#                 <button  class='btn-for-list' type="button" id ='kerker'  value ='{{ i }}'  >{{ i }}</button>#}
             </div>
             {% endfor %}
         </div>
-        <div class="chatbox__messages" ng-repeat="message in messages">
-          <div class="chatbox__messages__user-message">
-            <div class="chatbox__messages__user-message--ind-message">
-              <p class="name">[[message.Name]]</p>
-              <br/>
-              <p class="message">[[message.Message]]</p>
-            </div>
+
+          <div class="messages">
+
+              <li class="sent"></li>
           </div>
-        </div>
+
         <form>
-          <input ng-model="np" id="chat-message-input" type="text" placeholder="Type Message">
+            <textarea id="chat-message-input" type="text"  placeholder="Type Message" ></textarea>
         </form>
       </div>
-      <script >
-       //
-        {#  app = angular.module('chatApp', []);#}
-        {#因為django傳資料也用{{  }},跟angular撞到 ，所以angular要改：#}
-        {#  app.config(function($interpolateProvider) {#}
-        {#      $interpolateProvider.startSymbol('[[');#}
-        {#      $interpolateProvider.endSymbol(']]');#}
-        {#  });#}
-        {#  app.controller('MessageCtrl', function($scope) {#}
-        {#      $scope.myFunc = function() {#}
-        {#          $scope.showOriginal = true;#}
-        {#          $scope.messages = [{#}
-        {#              Name: 'Ben Marcus',#}
-        {#              Message:'ddd',#}
-        {#          }];#}
-        {#      };#}
-        {#   });#}
 
+
+      <script >
 
           app = angular.module('chatApp', []);
         // {#因為django傳資料也用{{  }},跟angular撞到 ，所以angular要改：#}
@@ -674,69 +685,73 @@ ul li.checked::before {
               $interpolateProvider.startSymbol('[[');
               $interpolateProvider.endSymbol(']]');
           });
-
           app.controller('MessageCtrl', function($scope) {
 
-              $scope.$watch('np', function(){
-                  app.controller('MessageCtrl', function($scope) {
-                      $scope.messages = [{
-                          Name: 'Ben Marcus',
-                          Message: messagex,
-                      }];
-                  });
+              function writeToScreen(message) {
+                  $("<li>"+"<p>"+message+"</p>"+"</li>").appendTo('.sent');
 
+              }
 
+             $scope.myFunc = function() {
+                 fired_button = $('#kerker').val();
+                 p_id = $('em').text();
+                 p_id2 =p_id.split("Personal ID:\xa0");
+                 my_id = p_id2.slice(1);
 
-              })
+                 $.ajax({
+                     url: '/dna/fire_in_the_hole_for_ajax/',
+                     type: 'POST',
+                     dataType: "json",
+                     data: {'fired_button':fired_button}
+                 });
 
+                 chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
+
+                 chatSocket.onmessage = function(e) {   // 6. websocket get data from backend then sent to the borwser to let clients see.
+                      data = JSON.parse(e.data);
+                      messagex = data['messagex'];
+                      now_time = data['now_time'];
+                      receive_user = data['user'];
+                      user = "{{ pu }}";
+
+                      console.log(messagex);
+                      console.log('happy');
+                      console.log(receive_user);
+                      console.log(user);
+                      if (receive_user === user) {
+                          writeToScreen(messagex);
+
+                      }
+                      else{
+                          writeToScreen('GUEST');
+                      }
+                  };
+
+                 chatSocket.onclose = function(e) {
+                       console.error('Chat socket closed unexpectedly');
+                 };
+
+                 document.querySelector('#chat-message-input').onkeyup = function(event) {
+                     e = event || window.event || arguments.callee.caller.arguments[0];
+                     if (e.shiftKey && e.keyCode === 13 )
+                        { }
+                     else if (e.keyCode === 13) {  // enter, return
+                         e.preventDefault();
+                         messageInputDom = document.querySelector('#chat-message-input');
+                         strContent = document.querySelector('#chat-message-input').value;
+                            {#alert("处理前的strContent为\r\n"+strContent);#}
+                         strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                         strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                         strContent = strContent.replace(/\s/g, ' '); //空格处理
+                         chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                                'messagex': strContent
+                          }));
+                         messageInputDom.value = '';
+                    }
+              };
+             };
           });
-
-
-          $('#kerker').click( function (result) {
-              fired_button = $(this).val();
-              p_id = $('em').text();
-              p_id2 =p_id.split("Personal ID:\xa0");
-              my_id = p_id2.slice(1);
-
-              $.ajax({
-                    url: '/dna/fire_in_the_hole_for_ajax/',
-                    type: 'POST',
-                    dataType: "json",
-                    data: {'fired_button':fired_button}
-              });
-              {#alert(fired_button);#}
-
-              chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
-
-              chatSocket.onmessage = function(e) {   // 6. websocket get data from backend then sent to the borwser to let clients see.
-                  data = JSON.parse(e.data);
-                  messagex = data['messagex'];
-
-
-              };
-
-              chatSocket.onclose = function(e) {
-                  console.error('Chat socket closed unexpectedly');
-              };
-
-              document.querySelector('#chat-message-input').focus();
-              document.querySelector('#chat-message-input').onkeyup = function(e) {
-                  if (e.keyCode === 13) {  // enter, return
-                      messageInputDom = document.querySelector('#chat-message-input');
-                      messagex = messageInputDom.value;
-                      chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
-                            'messagex': messagex
-                      }));
-                      messageInputDom.value = '';
-                  }
-              };
-
-          });
-
-
-
       </script>
-
     </div>
 </body>
 </html>

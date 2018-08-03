@@ -1,4 +1,6 @@
 #coding=utf-8
+import datetime
+import pytz
 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
@@ -31,23 +33,34 @@ class ChatConsumer(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         messagex = text_data_json['messagex']
+        user = str(self.scope['user'])
+        timezone = pytz.timezone('Asia/Taipei')
+        now_time = datetime.datetime.now(timezone).strftime('%H:%M')
         print('text_data_json :{}'.format(text_data_json))
+        print('user:{}'.format(user))
+        print('now_time:{}'.format(now_time))
 
     # 3. Then Send message to room group
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
                 'type': 'chat_message',
-                'messagex': messagex
+                'messagex': messagex,
+                'user': user,
+                'now_time': now_time
             }
         )
 
 # 4. Receive message from room group
     def chat_message(self, event):
         messagex = event['messagex']
-
+        now_time = event['now_time']
+        user = event['user']
+        print('messagex :{}'.format( messagex))
     # 5. Send message to WebSocket (frontend)
         self.send(text_data=json.dumps({
-            'messagex': messagex
+            'messagex': messagex,
+            'user': user,
+            'now_time': now_time,
         }))
 
