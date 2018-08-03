@@ -17,3 +17,10 @@ Keep update </br>
                 3. Solve while "send add friend request" can  access to mysql data and use unique key to construct the relationship.</br>
 <h3>* 07/19 : </h3></br>  
                 1. Modify html UI for more good UX.(Side-bar created.) </br>
+<h3>* 08/03 : </h3></br>  
+                1. Change background color. </br>
+                2. Solve string pass through websocket to frondend async problem. </br>
+                3. Change input to textarea for multi text-line and fix keypress by default. (Ref:https://blog.csdn.net/hj7jay/article/details/74279967)</br>
+                4. Solve messages float right and left problems. (Ref:https://bootsnipp.com/snippets/exR5v , and https://jsfiddle.net/dty6w2eh/37/) </br>
+                5. Solve output paragraph problems. </br>
+                
