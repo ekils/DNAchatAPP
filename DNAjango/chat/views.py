@@ -13,7 +13,9 @@ from django.contrib.auth.hashers import make_password
 # 導入表格，model的文檔:
 from chat import forms
 from chat.models import Personal
-from chat.models import Check_Database_for_Send_friend_Request, Add_to_RequestCheck,Parse_Request,Parse_Request_Accept_or_Reject,Check_Friendlist,Get_room_name
+from chat.models import Check_Database_for_Send_friend_Request, Add_to_RequestCheck,\
+    Parse_Request,Parse_Request_Accept_or_Reject,Check_Friendlist,From_username_to_Pid,\
+    Check_Room_name_for_dialague,Check_Message_table,Get_room_name,Load_SenderLogs_From_Mysql,Load_ReceiverLogs_From_Mysql
 #亂數密碼:
 from uuid import uuid4
 #csrf:
@@ -214,15 +216,41 @@ def logout(request):
 
 @csrf_exempt
 def fire_in_the_hole_for_ajax(request):
-    if request.user.is_authenticated:
-        pp = Personal.objects.get(username = '{}'.format(str(request.user)))
-        hostid = (pp.personal_ID)
-        who_u_press = request.POST.get('fired_button')
-        who_la = 1
-        print('who_u_press:{}'.format(who_u_press)) # freind_personal_id
-        print('who_press:{}'.format(hostid))
-        room_name = Get_room_name(hostid,who_u_press)
-    return JsonResponse({})
+
+    pp = Personal.objects.get(username = '{}'.format(str(request.user)))
+    hostid = (pp.personal_ID)
+    u_press = request.POST.get('fired_button')
+    who_u_press = From_username_to_Pid(u_press)
+    room_guys = Check_Room_name_for_dialague(hostid, who_u_press)
+    print('who_u_press:{}'.format(who_u_press)) # freind_personal_id
+    print('who_press:{}'.format(hostid))
+    print('room_guys:{}'.format(room_guys))
+    Check_Message_table(hostid, who_u_press)
+    name = Get_room_name(hostid,who_u_press)
+    name= name.split('-')
+    table_name= ''
+    for i in name :
+        table_name=table_name+i
+    ls= Load_SenderLogs_From_Mysql(table_name,hostid)
+    print(ls)
+    print('******************')
+    ls.reverse()
+    print(ls)
+
+    print('')
+
+    lr = Load_ReceiverLogs_From_Mysql(table_name, hostid)
+    print(lr)
+    print('%%%%%%%%%%%%%%%%%%')
+    lr.reverse()
+    print(lr)
+
+    return JsonResponse({'room_guys':room_guys,
+                         'lr':lr,
+                         'ls':ls
+                         })
+
+
 
 
 

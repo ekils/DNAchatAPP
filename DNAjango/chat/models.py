@@ -14,12 +14,12 @@ class Personal(models.Model):# 每個帳號的個人資訊
         db_table = "Personal"
 
 
-class Message(models.Model): # 聊天內容
-    header_id = models.IntegerField(blank=True)
-    context = models.TextField(blank=True)
-    last_modify_date = models.DateTimeField(auto_now=True)
-    class Meta:
-        db_table = "Message"
+# class Message(models.Model): # 聊天內容
+#     header_id = models.IntegerField(blank=True)
+#     context = models.TextField(blank=True)
+#     last_modify_date = models.DateTimeField(auto_now=True)
+#     class Meta:
+#         db_table = "Message"
 
 
 class Friendlist(models.Model):# 好友單
@@ -125,15 +125,93 @@ def Check_Friendlist(hostid):
         cursor.execute("select hostfriendlist from Friendlist where host_personal_ID= '{}' ".format(hostid))
         all_friends = cursor.fetchall()
         friendslist= [c[0] for c in all_friends]
-        print(friendslist)
 
+        f_username_list= []
+        for i in friendslist:
+            cursor.execute("select username from Personal where  personal_ID= '{}' ".format(i))
+            ff = cursor.fetchone()
+            f_username = ff[0]
+            f_username_list.append(f_username)
+        print(f_username_list)
     cursor.close()
-    return friendslist
+    return f_username_list
 
-def Get_room_name(host_id,friend__personal_id):
+
+def From_username_to_Pid(username):
+    with connection.cursor() as cursor:
+        cursor.execute("select personal_ID from Personal where username = '{}' ".format(username))
+        ff = cursor.fetchone()
+        username_pid = ff[0]
+    cursor.close()
+    return username_pid
+
+
+def Get_room_name(host_id,friend__personal_id): # 對話視窗編號
     with connection.cursor() as cursor:
         cursor.execute("select you_guys_chat_room_name from Friendlist where host_personal_ID ='{}' and hostfriendlist ='{}' ".format(host_id,friend__personal_id))
         get_name= cursor.fetchone()
         name = get_name[0]
     cursor.close()
     return name
+
+def Check_Room_name_for_dialague(host_id,friend__personal_id): # 對話視窗所有人id
+
+    name = Get_room_name(host_id,friend__personal_id)
+
+    with connection.cursor() as cursor:
+        cursor.execute("select host_personal_ID from Friendlist where you_guys_chat_room_name= '{}' ".format(name))
+        all = cursor.fetchall()
+        all_list= [c[0] for c in all]
+    cursor.close()
+    return all_list
+
+def Check_Message_table(host_id, friend__personal_id):  # 創建對話紀錄表格
+    name = Get_room_name(host_id, friend__personal_id)
+    name= name.split('-')
+    n= ''
+    for i in name :
+        n=n+i
+    with connection.cursor() as cursor:
+        cursor.execute("create table if not exists {}(id int NOT NULL AUTO_INCREMENT, Sender text NOT NULL,  Receiver text NOT NULL, Messages text  NOT NULL, Savetime Timestamp DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (id))".format(n))
+    cursor.close()
+    return
+
+
+def Save_Messages(table_name,sender_id,receiver_id,content):
+    with connection.cursor() as cursor:
+        cursor.execute("alter table {} modify Messages MEDIUMTEXT character set utf8".format(table_name))  # 存入中文要先轉換utf8  MEDIUMTEXT:最多可以存到16mb長度
+        cursor.execute("insert into {}(Sender,Receiver,Messages) values('{}','{}','{}')".format(table_name,sender_id,receiver_id,content))
+    cursor.close()
+    return
+
+
+# def Load_MessageLogs_From_Mysql(table_name,sender_id,receiver_id):
+#     with connection.cursor() as cursor:
+#         cursor.execute("select Messages,Savetime from {} where Sender='{}' and Receiver='{}'".format(table_name,sender_id,receiver_id))
+#         cc = [c for c in cursor.fetchall()] # 0:messages , 1: time
+#         for i in cc:
+#             print(i[0])
+#         for i in cc:
+#             print(i[1])
+#
+#     cursor.close()
+#     return
+
+def Load_SenderLogs_From_Mysql(table_name,sender_id):
+    with connection.cursor() as cursor:
+        cursor.execute("select Messages from {} where Sender='{}'".format(table_name,sender_id))
+        cc = [c for c in cursor.fetchall()] # 0:messages , 1: time
+        xx= []
+        for ii in cc:
+            xx.append(ii[0])
+    cursor.close()
+    return xx
+def Load_ReceiverLogs_From_Mysql(table_name,receiver_id):
+    with connection.cursor() as cursor:
+        cursor.execute("select Messages from {} where Receiver='{}'".format(table_name,receiver_id))
+        cc = [c for c in cursor.fetchall()]  # 0:messages , 1: time
+        xx = []
+        for ii in cc:
+            xx.append(ii[0])
+    cursor.close()
+    return xx

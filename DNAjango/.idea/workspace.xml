@@ -42,16 +42,16 @@
         <entry file="file://$PROJECT_DIR$/DNAjango/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="339">
-              <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+              <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chat/templates/chat/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="269" column="15" selection-start-line="269" selection-start-column="15" selection-end-line="269" selection-end-column="15" />
+            <state relative-caret-position="238">
+              <caret line="734" column="34" lean-forward="true" selection-start-line="734" selection-start-column="34" selection-end-line="734" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#8954#8960#0#HTML" expanded="true" />
@@ -102,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="96" column="16" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
+            <state relative-caret-position="18">
+              <caret line="193" column="22" lean-forward="true" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -117,8 +117,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chat/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="220" column="8" lean-forward="true" selection-start-line="220" selection-start-column="8" selection-end-line="220" selection-end-column="14" />
+            <state relative-caret-position="244">
+              <caret line="241" column="56" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -126,11 +126,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="105" selection-start-line="14" selection-start-column="105" selection-end-line="14" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="consumers2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chat/consumers2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="20" />
+            <state relative-caret-position="930">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="e#14#29#0" expanded="true" />
               </folding>
@@ -141,8 +150,8 @@
       <file leaf-file-name="routing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chat/routing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+            <state relative-caret-position="136">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding>
                 <element signature="e#14#42#0" expanded="true" />
               </folding>
@@ -164,17 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Request</find>
-      <find>chatMessage</find>
-      <find>ajax</find>
-      <find>uuid</find>
-      <find>self.channel_name</find>
-      <find>url_route</find>
-      <find>chat_message</find>
-      <find>controller</find>
-      <find>MessageCtrl</find>
-      <find>chatApp</find>
-      <find>alert</find>
       <find>fpid</find>
       <find>uuid4</find>
       <find>chat-message-input</find>
@@ -187,13 +185,24 @@
       <find>text_data</find>
       <find>right</find>
       <find>chatbox</find>
-      <find>pid</find>
       <find>chatbox__messages__user-message--ind-message</find>
       <find>chatbox__messages</find>
       <find>input</find>
       <find>webkit-input-placeholder</find>
       <find>ul</find>
       <find>sidenav</find>
+      <find>myFunc</find>
+      <find>get_name[0]</find>
+      <find>replies</find>
+      <find>myfriend</find>
+      <find>my_id</find>
+      <find>GUEST</find>
+      <find>pid</find>
+      <find>ajax</find>
+      <find>xxx</find>
+      <find>pu</find>
+      <find>room_guys</find>
+      <find>ans543</find>
     </findStrings>
     <replaceStrings>
       <replace>closeli</replace>
@@ -216,13 +225,13 @@
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/chat/templates/chat/signup.html" />
         <option value="$PROJECT_DIR$/chat/forms.py" />
-        <option value="$PROJECT_DIR$/chat/urls.py" />
-        <option value="$PROJECT_DIR$/chat/models.py" />
         <option value="$PROJECT_DIR$/chat/routing.py" />
         <option value="$PROJECT_DIR$/chat/consumers.py" />
-        <option value="$PROJECT_DIR$/DNAjango/settings.py" />
         <option value="$PROJECT_DIR$/chat/templates/chat/room.html" />
         <option value="$PROJECT_DIR$/chat/consumers2.py" />
+        <option value="$PROJECT_DIR$/DNAjango/settings.py" />
+        <option value="$PROJECT_DIR$/chat/urls.py" />
+        <option value="$PROJECT_DIR$/chat/models.py" />
         <option value="$PROJECT_DIR$/chat/views.py" />
         <option value="$PROJECT_DIR$/chat/templates/chat/main.html" />
       </list>
@@ -237,11 +246,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="126" />
-    <option name="y" value="-1033" />
-    <option name="width" value="1408" />
-    <option name="height" value="945" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-132" />
+    <option name="y" value="-1051" />
+    <option name="width" value="1825" />
+    <option name="height" value="1019" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -442,24 +451,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="126" y="-1033" width="1408" height="945" extended-state="0" />
-    <editor active="true" />
+    <frame x="-132" y="-1051" width="1825" height="1019" extended-state="1" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5019305" side_tool="true" weight="0.39036757" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.498713" visible="true" weight="0.10495283" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.498713" visible="true" weight="0.39154014" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info anchor="right" id="Python Console" order="6" weight="0.50073206" />
+      <window_info anchor="right" id="Python Console" order="6" weight="0.50196296" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.4375" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12884334" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12875536" />
       <window_info anchor="right" id="Docker" order="5" weight="0.54970324" />
       <window_info anchor="right" id="Database" order="0" weight="0.22793554" />
       <window_info anchor="right" id="SciView" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3995272" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="manage.py@DNAjango" order="4" sideWeight="0.4980695" weight="0.39036757" />
+      <window_info anchor="bottom" id="manage.py@DNAjango" order="4" sideWeight="0.4980695" weight="0.3889695" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
@@ -600,28 +608,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DNAjango/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="69" lean-forward="true" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chat/forms.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chat/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chat/consumers.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -640,22 +628,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat/consumers2.py">
+    <entry file="file://$PROJECT_DIR$/DNAjango/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/routing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="20" />
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding>
-            <element signature="e#14#29#0" expanded="true" />
+            <element signature="e#14#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat/views.py">
+    <entry file="file://$PROJECT_DIR$/chat/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="220" column="8" lean-forward="true" selection-start-line="220" selection-start-column="8" selection-end-line="220" selection-end-column="14" />
+        <state relative-caret-position="180">
+          <caret line="14" column="105" selection-start-line="14" selection-start-column="105" selection-end-line="14" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/consumers2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#14#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -663,24 +661,24 @@
     <entry file="file://$PROJECT_DIR$/DNAjango/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
-          <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+          <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat/models.py">
+    <entry file="file://$PROJECT_DIR$/chat/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="96" column="16" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
+        <state relative-caret-position="244">
+          <caret line="241" column="56" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chat/templates/chat/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="269" column="15" selection-start-line="269" selection-start-column="15" selection-end-line="269" selection-end-column="15" />
+        <state relative-caret-position="238">
+          <caret line="734" column="34" lean-forward="true" selection-start-line="734" selection-start-column="34" selection-end-line="734" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#8954#8960#0#HTML" expanded="true" />
@@ -726,6 +724,16 @@
             <element signature="e#19865#19871#0#HTML" expanded="true" />
             <element signature="n#style#0;n#h6#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="193" column="22" lean-forward="true" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

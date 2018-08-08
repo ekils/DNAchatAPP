@@ -1,3 +1,4 @@
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
@@ -21,7 +22,9 @@
 <!DOCTYPE html><html class=''>
 {#<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/michellelpepe/pen/GoQyoJ?depth=everything&order=popularity&page=84&q=pack&show_forks=false" />#}
 {#<link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>#}
+
 <head>
+
 <style class="cp-pen-styles" >* {
   margin: 0;
   padding: 0;
@@ -41,9 +44,6 @@ html, body {
 .modalinline{
     display:inline;
 }
-
-
-
 
 
 {#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#}
@@ -166,8 +166,12 @@ html, body {
   margin: 6px 0 0 8px;
 }
 .container .chatbox .messages  li.replies p {
-  background: #f5f5f5;
-  float: right;
+  {#background: #f5f5f5;#}
+  {#float: right;#}
+    background: rgba(255, 255, 255, 0.2);
+    float: left;
+    padding: 0.3em 1em;
+    border-radius:6px;
 }
 .container .chatbox .messages  li img {
   width: 22px;
@@ -398,6 +402,7 @@ ul li.checked::before {
 
 
 </style>
+    <link rel="shortcut icon" href="">
 </head>
 <body>
     <span style="font-size:30px;cursor:pointer; float:right;color: #FFF;" onclick="openNav()">&#9776; &nbsp;</span>
@@ -667,8 +672,8 @@ ul li.checked::before {
         </div>
 
           <div class="messages">
-
               <li class="sent"></li>
+              <li class="replies"></li>
           </div>
 
         <form>
@@ -688,9 +693,13 @@ ul li.checked::before {
           app.controller('MessageCtrl', function($scope) {
 
               function writeToScreen(message) {
-                  $("<li>"+"<p>"+message+"</p>"+"</li>").appendTo('.sent');
+                  $("<li class='sent'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');
 
               }
+
+              function fromothertoScreen(message) {
+                  $("<li class ='replies'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');}
+
 
              $scope.myFunc = function() {
                  fired_button = $('#kerker').val();
@@ -702,7 +711,33 @@ ul li.checked::before {
                      url: '/dna/fire_in_the_hole_for_ajax/',
                      type: 'POST',
                      dataType: "json",
-                     data: {'fired_button':fired_button}
+                     data: {'fired_button':fired_button},
+                     success: function(result) {
+                         {#console.log(result);#}
+                         {#room_guys= result;#}
+                         count = 0;
+                         for ( i=count;i<count+4;i++){
+                                     $('.messages').prepend("<li class='sent'>" + "<p>" + result.ls[i] + "</p>" + "</li>");
+                                     $('.messages').prepend("<li class='replies'>" + "<p>" + result.lr[i] + "</p>" + "</li>");
+                                     {#滑到最底:#}
+                                     $('.messages').scrollTop(2000);
+                         }
+                         count= count+4;
+                         $('.messages').scroll(function(){
+                             if (count<= result.ls.length){
+                                 if ($('.messages').scrollTop() == 0) {
+                                     for ( i=count;i<count+4;i++){
+                                         $('.messages').prepend("<li class='sent'>" + "<p>" + result.ls[i] + "</p>" + "</li>");
+                                         $('.messages').prepend("<li class='replies'>" + "<p>" + result.lr[i] + "</p>" + "</li>");
+                                         $('.messages').scrollTop(50);
+                                     }
+                                     count= count+4
+                                 }
+                             }
+
+                         });
+                     }
+
                  });
 
                  chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
@@ -718,13 +753,12 @@ ul li.checked::before {
                       console.log('happy');
                       console.log(receive_user);
                       console.log(user);
-                      if (receive_user === user) {
-                          writeToScreen(messagex);
 
-                      }
+
+                      if (receive_user === user) {
+                          writeToScreen(messagex);}
                       else{
-                          writeToScreen('GUEST');
-                      }
+                          fromothertoScreen(messagex);}
                   };
 
                  chatSocket.onclose = function(e) {
@@ -739,16 +773,47 @@ ul li.checked::before {
                          e.preventDefault();
                          messageInputDom = document.querySelector('#chat-message-input');
                          strContent = document.querySelector('#chat-message-input').value;
-                            {#alert("处理前的strContent为\r\n"+strContent);#}
-                         strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
-                         strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
-                         strContent = strContent.replace(/\s/g, ' '); //空格处理
-                         chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
-                                'messagex': strContent
-                          }));
-                         messageInputDom.value = '';
-                    }
-              };
+
+                         pattern = new RegExp("[\u4E00-\u9FA5]+"); // 中文
+                         pattern2 = new RegExp("[\u3105-\u3129\u02CA\u02C7\u02CB\u02D9]+");  //注音
+
+                        if (strContent.length ===1){
+
+                            if(pattern.test(strContent) || pattern2.test(strContent)){
+                             {#alert('字符串 :中文');#}
+                             strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                             strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                             strContent = strContent.replace(/\s/g, ' '); //空格处理
+                             chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                                    'messagex': strContent
+                              }));
+                             messageInputDom.value = '';
+                             $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
+                            }
+                            else{
+                                console.log(strContent.length);
+                              messageInputDom.value = '';
+                            }
+                        }
+                         else{
+                             {#alert("处理前的strContent为\r\n"+strContent);#}
+                             strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                             strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                             strContent = strContent.replace(/\s/g, ' '); //空格处理
+                             chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                                    'messagex': strContent
+                              }));
+                             messageInputDom.value = '';
+                             $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
+                         }
+                      }
+                  };
+
+
+
+
+
+
              };
           });
       </script>
