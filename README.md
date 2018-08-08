@@ -24,3 +24,8 @@ Keep update </br>
                 4. Solve messages float right and left problems. (Ref:https://bootsnipp.com/snippets/exR5v , and https://jsfiddle.net/dty6w2eh/37/) </br>
                 5. Solve output paragraph problems. </br>
                 
+<h3>* 08/08 : </h3></br> 
+                1. Solve jquery scroll top problem. (Ref:https://stackoverflow.com/questions/24450304/load-data-on-scroll-up-like-facebook-chatting-system/24450518) </br>
+                2. Fix chat messages load logs.</br>
+                3. Add message logs sql databases.</br>
+                4. Solve jquery infinite load bug. ($('.messages').scrollTop(2000);})
