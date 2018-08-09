@@ -29,3 +29,17 @@ Keep update </br>
                 2. Fix chat messages load logs.</br>
                 3. Add message logs sql databases.</br>
                 4. Solve jquery infinite load bug. ($('.messages').scrollTop(2000);})
+
+<h3>* 08/09 : </h3></br> 
+                1. Fix bugs: messages logs which should shows up by sender_id with right part(side).</br> 
+                2. Modified mysql database for mwssages log.</br> 
+
+
+
+<h1>* Other Refrences </h1></br>
+*creating-the-chat-app (Ref:https://channels.readthedocs.io/en/latest/tutorial/part_1.html#creating-the-chat-app )</br>
+* Configuring Remote Interpreter via DockerCompose (Ref: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html#docker-compose-remote)</br>
+* django视图-使用TemplateView快速运行一个bootstrap网页 (Ref: https://blog.csdn.net/qingche456/article/details/68491292)</br>
+* How to Insert Data into a Database from an HTML form in Django (Ref:http://www.learningaboutelectronics.com/Articles/How-to-insert-data-into-a-database-from-an-HTML-form-in-Django.php)</br>
+*Performing raw SQL queries (Ref: https://docs.djangoproject.com/en/1.11/topics/db/sql/#executing-custom-sql-directly) </br>
+* Django- Print data in html (in app2) from model (in app1) (Ref: https://stackoverflow.com/questions/28988681/django-print-data-in-html-in-app2-from-model-in-app1)</br>
