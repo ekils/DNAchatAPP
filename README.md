@@ -33,6 +33,7 @@ Keep update </br>
 <h3>* 08/09 : </h3></br> 
                 1. Fix bugs: messages logs which should shows up by sender_id with right part(side).</br> 
                 2. Modified mysql database for mwssages log.</br> 
+                3. Fix for loop id variables can not get problems.(Ref:https://stackoverflow.com/questions/33643239/accessing-an-element-in-django-for-loop)</br>
 
 
 
