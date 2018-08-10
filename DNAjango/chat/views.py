@@ -15,7 +15,7 @@ from chat import forms
 from chat.models import Personal
 from chat.models import Check_Database_for_Send_friend_Request, Add_to_RequestCheck,\
     Parse_Request,Parse_Request_Accept_or_Reject,Check_Friendlist,From_username_to_Pid,\
-    Check_Room_name_for_dialague,Check_Message_table,Get_room_name,Load_SenderLogs_From_Mysql,Load_ReceiverLogs_From_Mysql
+    Check_Room_name_for_dialague,Check_Message_table,Get_room_name,Load_MessagesLogs_From_Mqsql
 #亂數密碼:
 from uuid import uuid4
 #csrf:
@@ -231,24 +231,15 @@ def fire_in_the_hole_for_ajax(request):
     table_name= ''
     for i in name :
         table_name=table_name+i
-    ls= Load_SenderLogs_From_Mysql(table_name,hostid)
-    print(ls)
-    print('******************')
-    ls.reverse()
-    print(ls)
 
-    print('')
 
-    lr = Load_ReceiverLogs_From_Mysql(table_name, hostid)
-    print(lr)
-    print('%%%%%%%%%%%%%%%%%%')
-    lr.reverse()
-    print(lr)
+    cc = Load_MessagesLogs_From_Mqsql(table_name)
+    cc.reverse()
+    print(cc)
 
     return JsonResponse({'room_guys':room_guys,
-                         'lr':lr,
-                         'ls':ls
-                         })
+                         'cc':cc,
+                        })
 
 
 

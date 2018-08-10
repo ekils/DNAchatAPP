@@ -664,11 +664,11 @@ ul li.checked::before {
         <div class='chatbox__user-list'>
             <h6 style="padding-left: 40%; top: 5% "></h6><i class="material-icons" style="font-size:36px;color:white">people</i>
             <div></div>
-            {% for i in myfriend %}
-            <div  class='chatbox__user--active'>
-                 <button ng-click ='myFunc()' class='btn-for-list' type="button" id ='kerker'  value ='{{ i }}'  >{{ i }}</button>
-            </div>
-            {% endfor %}
+                {% for i in myfriend %}
+                   <div  class='chatbox__user--active'>
+                        <button ng-click ='myFunc("{{ i }}")' class='btn-for-list' type="button" id ='kerker{{ i }}'  value ='{{ i }}'  >{{ i }}</button>
+                   </div>
+                {% endfor %}
         </div>
 
           <div class="messages">
@@ -681,11 +681,10 @@ ul li.checked::before {
         </form>
       </div>
 
-
       <script >
 
           app = angular.module('chatApp', []);
-        // {#因為django傳資料也用{{  }},跟angular撞到 ，所以angular要改：#}
+        // {# 目前已用不到 ，但還是先保留:   因為django傳資料也用{{  }},跟angular撞到 ，所以angular要改：#}
           app.config(function($interpolateProvider) {
               $interpolateProvider.startSymbol('[[');
               $interpolateProvider.endSymbol(']]');
@@ -694,18 +693,19 @@ ul li.checked::before {
 
               function writeToScreen(message) {
                   $("<li class='sent'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');
-
+              }
+              function fromothertoScreen(message) {
+                  $("<li class ='replies'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');
               }
 
-              function fromothertoScreen(message) {
-                  $("<li class ='replies'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');}
+             $scope.myFunc = function(i) {
+                 {#for loop id的變數回傳方式 在function內 塞變數回傳即可#}
+                 fired_button = $('#kerker'+i).val();
 
-
-             $scope.myFunc = function() {
-                 fired_button = $('#kerker').val();
                  p_id = $('em').text();
                  p_id2 =p_id.split("Personal ID:\xa0");
                  my_id = p_id2.slice(1);
+
 
                  $.ajax({
                      url: '/dna/fire_in_the_hole_for_ajax/',
@@ -713,32 +713,85 @@ ul li.checked::before {
                      dataType: "json",
                      data: {'fired_button':fired_button},
                      success: function(result) {
-                         {#console.log(result);#}
-                         {#room_guys= result;#}
+                         $('.messages').scrollTop(2000);
+                         $(".messages").empty();
                          count = 0;
-                         for ( i=count;i<count+4;i++){
-                                     $('.messages').prepend("<li class='sent'>" + "<p>" + result.ls[i] + "</p>" + "</li>");
-                                     $('.messages').prepend("<li class='replies'>" + "<p>" + result.lr[i] + "</p>" + "</li>");
+                         dynamic_length= result.cc.length;
+                         {#改顯示數量:showup#}
+                         showup= 15;
+                         if(dynamic_length!=0){
+
+                             if(dynamic_length<10){
+                                 for ( i=count;i<count+dynamic_length;i++){
+                                     if( result.cc[i][0]== my_id ){
+                                         $('.messages').prepend("<li class='sent'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                     }
+                                     else{
+                                         $('.messages').prepend("<li class='replies'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                     }
                                      {#滑到最底:#}
                                      $('.messages').scrollTop(2000);
-                         }
-                         count= count+4;
-                         $('.messages').scroll(function(){
-                             if (count<= result.ls.length){
-                                 if ($('.messages').scrollTop() == 0) {
-                                     for ( i=count;i<count+4;i++){
-                                         $('.messages').prepend("<li class='sent'>" + "<p>" + result.ls[i] + "</p>" + "</li>");
-                                         $('.messages').prepend("<li class='replies'>" + "<p>" + result.lr[i] + "</p>" + "</li>");
-                                         $('.messages').scrollTop(50);
+                                 }
+                                 count= count+dynamic_length;
+                                 dynamic_length= dynamic_length-showup;
+                             }
+                             else{
+                                 for ( i=count;i<count+10;i++){
+                                     if( result.cc[i][0]== my_id ){
+                                         $('.messages').prepend("<li class='sent'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
                                      }
-                                     count= count+4
+                                     else{
+                                         $('.messages').prepend("<li class='replies'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                     }
+                                     {#滑到最底:#}
+                                     $('.messages').scrollTop(2000);
+                                 }
+                                 count= count+10;
+                                 dynamic_length= dynamic_length-10;
+                             }
+                         }
+
+                         $('.messages').scroll(function(){
+                             if (count<= result.cc.length){
+                                 if ($('.messages').scrollTop() == 0) {
+
+                                     if(dynamic_length !=0){
+                                         if(dynamic_length <showup){
+                                             for ( i=count;i<count+dynamic_length;i++){
+                                                 if( result.cc[i][0]== my_id ){
+                                                     $('.messages').prepend("<li class='sent'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                                 }
+                                                 else{
+                                                     $('.messages').prepend("<li class='replies'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                                 }
+                                                 $('.messages').scrollTop(100);
+                                            }
+                                             count= count+dynamic_length;
+                                             dynamic_length = 0;
+                                        }
+                                     else{
+                                             for ( i=count;i<count+showup;i++){
+                                                 if( result.cc[i][0]== my_id ){
+                                                     $('.messages').prepend("<li class='sent'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                                 }
+                                                 else{
+                                                     $('.messages').prepend("<li class='replies'>" + "<p>" + result.cc[i][2] + "</p>" + "</li>");
+                                                 }
+                                                 $('.messages').scrollTop(100);
+                                             }
+                                             count= count+showup;
+                                             dynamic_length = dynamic_length-showup;
+                                     }
+                                     }
                                  }
                              }
-
                          });
                      }
-
                  });
+
+
+
+
 
                  chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
 
@@ -764,55 +817,81 @@ ul li.checked::before {
                  chatSocket.onclose = function(e) {
                        console.error('Chat socket closed unexpectedly');
                  };
-
+                 prescount= 0;
                  document.querySelector('#chat-message-input').onkeyup = function(event) {
                      e = event || window.event || arguments.callee.caller.arguments[0];
+
                      if (e.shiftKey && e.keyCode === 13 )
                         { }
                      else if (e.keyCode === 13) {  // enter, return
                          e.preventDefault();
+                         prescount++;
                          messageInputDom = document.querySelector('#chat-message-input');
                          strContent = document.querySelector('#chat-message-input').value;
-
                          pattern = new RegExp("[\u4E00-\u9FA5]+"); // 中文
                          pattern2 = new RegExp("[\u3105-\u3129\u02CA\u02C7\u02CB\u02D9]+");  //注音
 
-                        if (strContent.length ===1){
 
+                        if (strContent.length ===1){
                             if(pattern.test(strContent) || pattern2.test(strContent)){
                              {#alert('字符串 :中文');#}
-                             strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
-                             strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
-                             strContent = strContent.replace(/\s/g, ' '); //空格处理
-                             chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
-                                    'messagex': strContent
-                              }));
-                             messageInputDom.value = '';
-                             $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
+
+                                if (prescount===2) {
+                                    prescount=0;
+                                    strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                                    strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                                    strContent = strContent.replace(/\s/g, ' '); //空格处理
+                                    chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                                        'messagex': strContent}));
+                                    messageInputDom.value = '';
+                                    $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
+                                }
+                                else{
+                                    prescount=1;
+                                }
                             }
                             else{
                                 console.log(strContent.length);
-                              messageInputDom.value = '';
+                                messageInputDom.value = '';
                             }
-                        }
-                         else{
-                             {#alert("处理前的strContent为\r\n"+strContent);#}
-                             strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
-                             strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
-                             strContent = strContent.replace(/\s/g, ' '); //空格处理
-                             chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
-                                    'messagex': strContent
-                              }));
-                             messageInputDom.value = '';
-                             $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
                          }
-                      }
+                         else{
+                            {#中文要enter 兩次#}
+                            if(pattern.test(strContent) || pattern2.test(strContent)){
+
+                                if (prescount===2) {
+                                    prescount=0;
+                                    {#alert("处理前的strContent为\r\n"+strContent);#}
+                                    strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                                    strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                                    strContent = strContent.replace(/\s/g, ' '); //空格处理
+                                    chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                                        'messagex': strContent}));
+                                    messageInputDom.value = '';
+                                    $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
+                                }
+                                else{
+                                    prescount=1;
+                                }
+                            }
+                            {#不然就enter 1次#}
+                            else{
+                                prescount=0;
+                                strContent = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+                                strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8
+                                strContent = strContent.replace(/\s/g, ' '); //空格处理
+                                chatSocket.send(JSON.stringify({   // 1. from websocket send to backend (next go to consumers2.py )
+                                    'messagex': strContent}));
+                                messageInputDom.value = '';
+                                $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
+                            }
+
+                         }
+                     }
+                     else{
+                         prescount=0;
+                     }
                   };
-
-
-
-
-
 
              };
           });

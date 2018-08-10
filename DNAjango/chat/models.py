@@ -197,21 +197,30 @@ def Save_Messages(table_name,sender_id,receiver_id,content):
 #     cursor.close()
 #     return
 
-def Load_SenderLogs_From_Mysql(table_name,sender_id):
+# def Load_SenderLogs_From_Mysql(table_name,sender_id):
+#     with connection.cursor() as cursor:
+#         cursor.execute("select Messages from {} where Sender='{}'".format(table_name,sender_id))
+#         cc = [c for c in cursor.fetchall()] # 0:messages , 1: time
+#         xx= []
+#         for ii in cc:
+#             xx.append(ii[0])
+#     cursor.close()
+#     return xx
+# def Load_ReceiverLogs_From_Mysql(table_name,receiver_id):
+#     with connection.cursor() as cursor:
+#         cursor.execute("select Messages from {} where Receiver='{}'".format(table_name,receiver_id))
+#         cc = [c for c in cursor.fetchall()]  # 0:messages , 1: time
+#         xx = []
+#         for ii in cc:
+#             xx.append(ii[0])
+#     cursor.close()
+#     return xx
+
+
+
+def Load_MessagesLogs_From_Mqsql(table_name):
     with connection.cursor() as cursor:
-        cursor.execute("select Messages from {} where Sender='{}'".format(table_name,sender_id))
-        cc = [c for c in cursor.fetchall()] # 0:messages , 1: time
-        xx= []
-        for ii in cc:
-            xx.append(ii[0])
+        cursor.execute("select Sender,Receiver,Messages from {} ".format(table_name))
+        cc = [c for c in cursor.fetchall()] # [(Sendr),(Receiver),(Messages)]
     cursor.close()
-    return xx
-def Load_ReceiverLogs_From_Mysql(table_name,receiver_id):
-    with connection.cursor() as cursor:
-        cursor.execute("select Messages from {} where Receiver='{}'".format(table_name,receiver_id))
-        cc = [c for c in cursor.fetchall()]  # 0:messages , 1: time
-        xx = []
-        for ii in cc:
-            xx.append(ii[0])
-    cursor.close()
-    return xx
+    return cc
