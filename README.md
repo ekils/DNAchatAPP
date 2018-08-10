@@ -34,6 +34,17 @@ Keep update </br>
                 1. Fix bugs: messages logs which should shows up by sender_id with right part(side).</br> 
                 2. Modified mysql database for mwssages log.</br> 
                 3. Fix for loop id variables can not get problems.(Ref:https://stackoverflow.com/questions/33643239/accessing-an-element-in-django-for-loop)</br>
+                
+<h3>* 08/10 : </h3></br> 
+                1. Miner bus fixed.</br> 
+                2. Basic chat version is worked!</br> 
+
+
+<h1>* To be continued </h1></br>
+1. Deployed to nginx.</br>
+2. Support sending pics and media files.</br>
+3. Broadcasting for trending social media( eg. IG,FB.....)</br>
+
 
 
 
