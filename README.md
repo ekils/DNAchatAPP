@@ -1,5 +1,11 @@
 # DNAchatAPP
 Keep update </br>
+
+![GitHub Logo](https://github.com/ekils/DNAchatAPP/blob/master/DNAjango/Theme-Shield/img/0810.gif)
+
+
+
+
 <h3>* Before 07/11 : </h3></br>
                  1. Understanding docker, restAPI,Redis and prepare resources. </br>
                  2. Setting up Django for pycharm (Ref: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter-1.html)</br>
