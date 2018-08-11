@@ -15,7 +15,9 @@ class ChatConsumer(WebsocketConsumer):
         print('url_route:{}'.format(self.scope['url_route']))  # 去routing 的 websocket 抓route
         print(self.scope)
         # print('self.channel_name:{}'.format(self.channel_name))
-        # print('igotu:{}'.format(igotu))
+        print('igotu:{}'.format(igotu))
+
+        c= igotu[0]
 
         heyhey_pid = From_username_to_Pid(igotu[0])
         room_name= Get_room_name(igotu[1],heyhey_pid)
@@ -26,6 +28,7 @@ class ChatConsumer(WebsocketConsumer):
 
     def disconnect(self, close_code):
         # Leave room group
+        print('歡慶88節')
         async_to_sync(self.channel_layer.group_discard)(
             self.room_group_name,
             self.channel_name

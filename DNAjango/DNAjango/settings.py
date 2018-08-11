@@ -95,8 +95,9 @@ DATABASES = {
         'NAME': 'mysql_DNA',
         'USER': 'root',
         'PASSWORD':'1234',
-        'HOST': '192.168.6.160',
+        'HOST': '192.168.86.72',
         'PORT':'8888',
+        # terminal :$ mysql -h0.0.0.0 -uroot -P8888 -p1234
     }
 }
 

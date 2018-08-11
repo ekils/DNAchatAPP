@@ -689,19 +689,25 @@ ul li.checked::before {
               $interpolateProvider.startSymbol('[[');
               $interpolateProvider.endSymbol(']]');
           });
+
           app.controller('MessageCtrl', function($scope) {
 
               function writeToScreen(message) {
                   $("<li class='sent'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');
+                  $('.messages').scrollTop(2000);
+
               }
               function fromothertoScreen(message) {
                   $("<li class ='replies'>"+"<p>"+message+"</p>"+"</li>").appendTo('.messages');
-              }
+                  $('.messages').scrollTop(2000);
 
-             $scope.myFunc = function(i) {
+              }
+              connect_count= 0;
+              $scope.myFunc = function(i) {
+
                  {#for loop id的變數回傳方式 在function內 塞變數回傳即可#}
                  fired_button = $('#kerker'+i).val();
-
+                 connect_count++;
                  p_id = $('em').text();
                  p_id2 =p_id.split("Personal ID:\xa0");
                  my_id = p_id2.slice(1);
@@ -713,6 +719,7 @@ ul li.checked::before {
                      dataType: "json",
                      data: {'fired_button':fired_button},
                      success: function(result) {
+
                          $('.messages').scrollTop(2000);
                          $(".messages").empty();
                          count = 0;
@@ -788,12 +795,18 @@ ul li.checked::before {
                          });
                      }
                  });
+                  if( connect_count==1) {
+                        chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button + '_' + my_id + '/');
+                    }
+
+                 {#對話窗一次只有一個連線#}
+                  if( connect_count>1){
+                      chatSocket.close();
+                      chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
+                  }
 
 
 
-
-
-                 chatSocket = new WebSocket('ws://' + window.location.host + '/fire_in_the_hole/' + fired_button+'_'+my_id+ '/');
 
                  chatSocket.onmessage = function(e) {   // 6. websocket get data from backend then sent to the borwser to let clients see.
                       data = JSON.parse(e.data);
@@ -817,6 +830,9 @@ ul li.checked::before {
                  chatSocket.onclose = function(e) {
                        console.error('Chat socket closed unexpectedly');
                  };
+
+
+
                  prescount= 0;
                  document.querySelector('#chat-message-input').onkeyup = function(event) {
                      e = event || window.event || arguments.callee.caller.arguments[0];
@@ -847,7 +863,7 @@ ul li.checked::before {
                                     $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
                                 }
                                 else{
-                                    prescount=1;
+
                                 }
                             }
                             else{
@@ -871,7 +887,7 @@ ul li.checked::before {
                                     $(".messages").stop().animate({ scrollTop: $(".messages")[0].scrollHeight}, 1000);
                                 }
                                 else{
-                                    prescount=1;
+                                   
                                 }
                             }
                             {#不然就enter 1次#}
