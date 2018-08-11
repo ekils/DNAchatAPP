@@ -42,9 +42,11 @@ Keep update </br>
                 3. Fix for loop id variables can not get problems.(Ref:https://stackoverflow.com/questions/33643239/accessing-an-element-in-django-for-loop)</br>
                 
 <h3>* 08/10 : </h3></br> 
-                1. Miner bus fixed.</br> 
+                1. Minor bugs fixed.</br> 
                 2. Basic chat version is worked!</br> 
 
+<h3>* 08/10 : </h3></br> 
+                1. Minor bugs fixed.</br> 
 
 <h1>* To be continued </h1></br>
 1. Deployed to nginx.</br>
