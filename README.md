@@ -1,5 +1,5 @@
 # DNAchatAPP
-Keep update </br>
+最新版本，可以正常聊天，並且從資料庫讀取聊天記錄。如同line,slack依樣。 </br>
 
 ![GitHub Logo](https://github.com/ekils/DNAchatAPP/blob/master/DNAjango/Theme-Shield/img/0810.gif)
 
