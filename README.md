@@ -55,7 +55,7 @@
 
 
 
-
+2
 <h1>* Other Refrences </h1></br>
 *creating-the-chat-app (Ref:https://channels.readthedocs.io/en/latest/tutorial/part_1.html#creating-the-chat-app )</br>
 * Configuring Remote Interpreter via DockerCompose (Ref: https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html#docker-compose-remote)</br>
